@@ -54,6 +54,7 @@ static Layer *s_bases_layer;
 static char inning[15];
 static char home_score[25];
 static char away_score[25];
+static char s_buffer_prev[8];
 
 // Color Resources
 #define ASCII_0_VALU 48
@@ -812,8 +813,12 @@ static void update_time() {
     }
     
   }
-  // Display this time on the TextLayer
-  text_layer_set_text(s_time_layer, s_buffer);
+  // Display this time on the TextLayer if the time changed
+  if (strcmp(s_buffer, s_buffer_prev) != 0){
+    text_layer_set_text(s_time_layer, s_buffer);
+    snprintf(s_buffer_prev, sizeof(s_buffer_prev), "%s", s_buffer);
+  }
+  
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
