@@ -1,0 +1,85 @@
+{
+    "appKeys": {
+        "AWAY_BROADCAST": 9,
+        "AWAY_PITCHER": 6,
+        "AWAY_SCORE": 14,
+        "AWAY_TEAM": 4,
+        "BALLS": 17,
+        "FIRST": 10,
+        "GAME_TIME": 7,
+        "HOME_BROADCAST": 8,
+        "HOME_PITCHER": 5,
+        "HOME_SCORE": 13,
+        "HOME_TEAM": 3,
+        "INNING": 15,
+        "INNING_HALF": 16,
+        "NUM_GAMES": 1,
+        "OUTS": 19,
+        "PREF_BACKGROUND_COLOR": 27,
+        "PREF_FAVORITE_TEAM": 20,
+        "PREF_PRIMARY_COLOR": 25,
+        "PREF_REFRESH_TIME_OFF": 23,
+        "PREF_REFRESH_TIME_ON": 24,
+        "PREF_SECONDARY_COLOR": 26,
+        "PREF_SHAKE_ENABELED": 21,
+        "PREF_SHAKE_TIME": 22,
+        "SECOND": 11,
+        "STATUS": 2,
+        "STRIKES": 18,
+        "THIRD": 12,
+        "TYPE": 0
+    },
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Chris Schlitt",
+    "enableMultiJS": true,
+    "longName": "MLB Live Face",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/phi.bmp",
+                "name": "PHI_LOGO",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "fonts/PHILLIES_FONT.ttf",
+                "name": "FONT_PHILLIES_22",
+                "targetPlatforms": null,
+                "type": "font"
+            },
+            {
+                "file": "fonts/CAPITAL_FONT.ttf",
+                "name": "FONT_CAPITAL_20",
+                "targetPlatforms": null,
+                "type": "font"
+            },
+            {
+                "file": "fonts/MLB_FONT.ttf",
+                "name": "FONT_MLB_18",
+                "targetPlatforms": null,
+                "type": "font"
+            },
+            {
+                "file": "fonts/MLB_FONT.ttf",
+                "name": "FONT_MLB_40",
+                "targetPlatforms": null,
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "MLB Live Face",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "58b2260a-42ab-4cc1-8767-743ed9733d75",
+    "versionLabel": "2.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
