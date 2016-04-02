@@ -1,5 +1,5 @@
 // Global Settings Variables
-var favoriteTeam = 'phi';
+var favoriteTeam = 19;
 var shakeEnabled = 1;
 var shakeTime = 5;
 var refreshTime = [3600, 60];
@@ -205,7 +205,8 @@ function processGameData(gameData){
 // Function to get MLB data from personal server
 function getGameData(offset){
   var method = 'GET';
-  var url = 'http://pebble.phl.chs.network/mlb/api.php?cst=' + Pebble.getAccountToken() + '&team=' + favoriteTeam + '&offset=' + offset;
+  var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY"];
+  var url = 'http://pebble.phl.chs.network/mlb/api.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset;
   // Create the request
   var request = new XMLHttpRequest();
   
@@ -256,8 +257,60 @@ function sendSettings(){
   sendDataToWatch(dictionary);
 }
 
+// Function to load the stored settings
+function loadSettings(){
+  favoriteTeam = localStorage.getItem(1);
+  shakeEnabled = localStorage.getItem(2);
+  shakeTime = localStorage.getItem(3);
+  refreshTime[0] = localStorage.getItem(4);
+  refreshTime[1] = localStorage.getItem(5);
+  primaryColor = localStorage.getItem(6);
+  secondaryColor = localStorage.getItem(7);
+  backgroundColor = localStorage.getItem(8);
+}
+
+// Function to store settings
+function storeSettings(configuration){
+  // console.log('Configuration window returned: ', JSON.stringify(configuration));
+  if (configuration.hasOwnProperty('favorite_team') === true) {
+    favoriteTeam = parseInt(configuration.favorite_team);
+    localStorage.setItem(1, favoriteTeam);
+  }
+  if (configuration.hasOwnProperty('shake_enabeled') === true) {
+    shakeEnabled = parseInt(configuration.shake_enabeled);
+    localStorage.setItem(2, shakeEnabled);
+  }
+  if (configuration.hasOwnProperty('shake_time') === true) {
+    shakeTime = parseInt(configuration.shake_time);
+    localStorage.setItem(3, shakeTime);
+  }
+  if (configuration.hasOwnProperty('refresh_off') === true) {
+    refreshTime[0] = parseInt(configuration.refresh_off);
+    localStorage.setItem(4, refreshTime[0]);
+  }
+  if (configuration.hasOwnProperty('refresh_game') === true) {
+    refreshTime[1] = parseInt(configuration.refresh_game);
+    localStorage.setItem(5, refreshTime[1]);
+  }
+  if (configuration.hasOwnProperty('primary_color') === true) {
+    primaryColor = configuration.primary_color;
+    localStorage.setItem(6, primaryColor);
+  }
+  if (configuration.hasOwnProperty('secondary_color') === true) {
+    secondaryColor = configuration.secondary_color;
+    localStorage.setItem(7, secondaryColor);
+  }
+  if (configuration.hasOwnProperty('background_color') === true) {
+    backgroundColor = configuration.background_color;
+    localStorage.setItem(8, backgroundColor);
+  }
+  sendSettings();
+  newGameDataRequest();
+}
+
 // Fucntion to send initial settings/processes to watch and load data
 function initializeData(){
+  loadSettings();
   sendSettings();
   newGameDataRequest();
 }
@@ -270,4 +323,16 @@ Pebble.addEventListener("ready", function(e) {
 // Called when incoming message from the Pebble is received
 Pebble.addEventListener("appmessage", function(e) {
   newGameDataRequest();
+});
+
+Pebble.addEventListener('webviewclosed', function(e) {
+  // Decode the user's preferences
+  var configuration = JSON.parse(decodeURIComponent(e.response));
+  storeSettings(configuration);
+});
+
+Pebble.addEventListener('showConfiguration', function() {
+  loadSettings();
+  var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1];
+  Pebble.openURL(url);
 });

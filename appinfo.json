@@ -30,7 +30,7 @@
         "TYPE": 0
     },
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "Chris Schlitt",
     "enableMultiJS": true,

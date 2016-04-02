@@ -55,6 +55,9 @@ static char inning[15];
 static char home_score[25];
 static char away_score[25];
 static char s_buffer_prev[8];
+// uint32_t logo[33] = {RESOURCE_ID_PHILLIES, RESOURCE_ID_ANGELS, RESOURCE_ID_ASTROS, RESOURCE_ID_ATHLETICS, RESOURCE_ID_BLUEJAYS, RESOURCE_ID_BRAVES, RESOURCE_ID_BREWERS, RESOURCE_ID_CARDINALS, RESOURCE_ID_CUBS, RESOURCE_ID_DIAMONDBACKS, RESOURCE_ID_DODGERS, RESOURCE_ID_GIANTS, RESOURCE_ID_INDIANS, RESOURCE_ID_MARINERS, RESOURCE_ID_MARLINS, RESOURCE_ID_METS, RESOURCE_ID_NATIONALS, RESOURCE_ID_ORIOLES, RESOURCE_ID_PADRES, RESOURCE_ID_PHILLIES, RESOURCE_ID_PIRATES, RESOURCE_ID_RANGERS, RESOURCE_ID_RAYS, RESOURCE_ID_REDSOX, RESOURCE_ID_REDS, RESOURCE_ID_ROCKIES, RESOURCE_ID_ROYALS, RESOURCE_ID_TIGERS, RESOURCE_ID_TWINS, RESOURCE_ID_WHITESOX, RESOURCE_ID_YANKEES, RESOURCE_ID_NL, RESOURCE_ID_AL};
+
+
 
 // Color Resources
 #define ASCII_0_VALU 48
@@ -115,6 +118,7 @@ typedef struct GameDataSets {
 
 // Settings data type
 typedef struct Settings {
+  int favorite_team;
   int shake_enabeled;
   int shake_time;
   int refresh_time_off;
@@ -129,8 +133,9 @@ static GameData previousGameData;
 static Settings userSettings;
 
 static void initialize_settings(){
-  userSettings.shake_enabeled = 0;
-  userSettings.shake_time = 0;
+  userSettings.favorite_team = 19;
+  userSettings.shake_enabeled = 1;
+  userSettings.shake_time = 5;
   userSettings.refresh_time_off = 3600;
   userSettings.refresh_time_on = 180;
   userSettings.primary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
@@ -438,6 +443,9 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
     Tuple *t = dict_read_first(received);
     while(t != NULL) {
       switch(t->key) {
+        case PREF_FAVORITE_TEAM:
+          userSettings.favorite_team = (int)t->value->int32;
+          break;
         case PREF_SHAKE_ENABELED:
           userSettings.shake_enabeled = (int)t->value->int32;
           break;
