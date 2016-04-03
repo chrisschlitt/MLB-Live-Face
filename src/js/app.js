@@ -17,6 +17,7 @@ var backgroundColor = "000000";
 
 // Global Variables
 var offset = 0;
+var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY"];
 
 // Function to get the timezone offset
 function getTimezoneOffsetHours(){
@@ -58,8 +59,13 @@ function compileDataForWatch(raw_data, game){
     } else {
       dictionary.GAME_TIME = data.game_time;
     }
-    dictionary.HOME_BROADCAST = data.home_radio_broadcast;
-    dictionary.AWAY_BROADCAST = data.home_tv_broadcast;
+    if(dictionary.HOME_TEAM == teams[favoriteTeam]){
+      dictionary.HOME_BROADCAST = data.home_radio_broadcast;
+      dictionary.AWAY_BROADCAST = data.home_tv_broadcast;
+    } else {
+      dictionary.HOME_BROADCAST = data.away_radio_broadcast;
+      dictionary.AWAY_BROADCAST = data.away_tv_broadcast;
+    }
     sendDataToWatch(dictionary);
     
   } else if (game_status == 'In Progress'){
@@ -205,7 +211,6 @@ function processGameData(gameData){
 // Function to get MLB data from personal server
 function getGameData(offset){
   var method = 'GET';
-  var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY"];
   var url = 'http://pebble.phl.chs.network/mlb/api.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset;
   // Create the request
   var request = new XMLHttpRequest();
