@@ -93,6 +93,12 @@
                 "type": "bitmap"
             },
             {
+                "file": "images/phi.bmp",
+                "name": "PHILLIES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
                 "file": "images/oak.png",
                 "name": "ATHLETICS",
                 "targetPlatforms": null,
@@ -213,20 +219,14 @@
                 "type": "bitmap"
             },
             {
-                "file": "images/phi.bmp",
-                "name": "PHILLIES",
-                "targetPlatforms": null,
-                "type": "bitmap"
-            },
-            {
                 "file": "fonts/PHILLIES_FONT.ttf",
                 "name": "FONT_PHILLIES_22",
                 "targetPlatforms": null,
                 "type": "font"
             },
             {
-                "file": "fonts/CAPITAL_FONT.ttf",
-                "name": "FONT_CAPITAL_20",
+                "file": "fonts/MLB_FONT.ttf",
+                "name": "FONT_MLB_40",
                 "targetPlatforms": null,
                 "type": "font"
             },
@@ -237,8 +237,8 @@
                 "type": "font"
             },
             {
-                "file": "fonts/MLB_FONT.ttf",
-                "name": "FONT_MLB_40",
+                "file": "fonts/CAPITAL_FONT.ttf",
+                "name": "FONT_CAPITAL_20",
                 "targetPlatforms": null,
                 "type": "font"
             }

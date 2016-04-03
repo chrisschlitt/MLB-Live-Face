@@ -253,7 +253,7 @@ function newGameDataRequest(){
 
 // Function to append settings to data
 function sendSettings(){
-  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':favoriteTeam, 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor};
+  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor};
   sendDataToWatch(dictionary);
 }
 
@@ -357,6 +357,7 @@ Pebble.addEventListener('webviewclosed', function(e) {
 
 Pebble.addEventListener('showConfiguration', function() {
   loadSettings();
-  var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1];
+  var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime;
   Pebble.openURL(url);
 });
+

@@ -56,6 +56,7 @@ static char home_score[25];
 static char away_score[25];
 static char s_buffer_prev[8];
 uint32_t logo[31] = {RESOURCE_ID_PHILLIES, RESOURCE_ID_ANGELS, RESOURCE_ID_ASTROS, RESOURCE_ID_ATHLETICS, RESOURCE_ID_BLUEJAYS, RESOURCE_ID_BRAVES, RESOURCE_ID_BREWERS, RESOURCE_ID_CARDINALS, RESOURCE_ID_CUBS, RESOURCE_ID_DIAMONDBACKS, RESOURCE_ID_DODGERS, RESOURCE_ID_GIANTS, RESOURCE_ID_INDIANS, RESOURCE_ID_MARINERS, RESOURCE_ID_MARLINS, RESOURCE_ID_METS, RESOURCE_ID_NATIONALS, RESOURCE_ID_ORIOLES, RESOURCE_ID_PADRES, RESOURCE_ID_PHILLIES, RESOURCE_ID_PIRATES, RESOURCE_ID_RANGERS, RESOURCE_ID_RAYS, RESOURCE_ID_REDSOX, RESOURCE_ID_REDS, RESOURCE_ID_ROCKIES, RESOURCE_ID_ROYALS, RESOURCE_ID_TIGERS, RESOURCE_ID_TWINS, RESOURCE_ID_WHITESOX, RESOURCE_ID_YANKEES};
+static int logo_uodate_i = 0;
 
 // Color Resources
 #define ASCII_0_VALU 48
@@ -350,6 +351,7 @@ static void showNoGame(){
     rotate_clear(s_inning_layer, 1);
     rotate_clear(s_away_team_layer, 1);
     rotate_clear(s_home_team_layer, 1);
+    rotate_clear(s_game_time_layer, 1);
     // Show No Game
     sliding_text_layer_set_next_text(s_loading_layer, "No Game Today");
     sliding_text_layer_animate_down(s_loading_layer);
@@ -365,6 +367,7 @@ static void change_colors(){
   sliding_text_layer_set_text_color(s_away_data_layer, userSettings.primary_color);
   sliding_text_layer_set_text_color(s_inning_layer, userSettings.primary_color);
   sliding_text_layer_set_text_color(s_loading_layer, userSettings.primary_color);
+  sliding_text_layer_set_text_color(s_game_time_layer, userSettings.primary_color);
   update_bso();
   update_inning_state();
   // Set Secondary Color
@@ -373,13 +376,18 @@ static void change_colors(){
   // Set Background Color
   window_set_background_color(window, userSettings.background_color);
   // Set Favorite Team
+  if(logo_uodate_i > 0){
+    gbitmap_destroy(s_team_logo);
+  }
+  logo_uodate_i = 1;
   s_team_logo = gbitmap_create_with_resource(logo[userSettings.favorite_team]);
   bitmap_layer_set_bitmap(s_team_logo_layer, s_team_logo);
+  layer_mark_dirty(bitmap_layer_get_layer(s_team_logo_layer));
 }
 
 // Function to determine which graphics need to be updated
 static void route_graphic_updates(){
-  if (currentGameData.status != previousGameData.status){
+  if ((currentGameData.status != previousGameData.status) || (strcmp(currentGameData.home_team, previousGameData.home_team) != 0) || (strcmp(currentGameData.away_team, previousGameData.away_team) != 0)){
     if (currentGameData.status == 2){
       // Game Started
       startGame();
@@ -397,6 +405,7 @@ static void route_graphic_updates(){
       newGame();
     }
   } else if (currentGameData.status == 0 && previousGameData.status != 0){
+  // } else if (currentGameData.status == 0){
     // New Game Fallback
     newGame();
   } else if (currentGameData.status == 2){
@@ -484,7 +493,6 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
       // This value was stored as JS Number, which is stored here as int32_t
       num_games = (int)type_tuple->value->int32;
     }
-    
     if (num_games == 0){
       // Show No Game Today
       showNoGame();
@@ -492,6 +500,10 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
       // Hide the Loading Screen
       if(showing_loading_screen == 1){
         hide_loading_screen();
+      }
+      // Hide the No Game Message
+      if(showing_no_game == 1){
+        showing_no_game = 0;
       }
       
       // Process the data set
@@ -696,10 +708,8 @@ static void window_load(Window *window) {
   window_set_background_color(window, userSettings.background_color);
   
   // Load team logo
-  s_team_logo = gbitmap_create_with_resource(RESOURCE_ID_PHILLIES);
   s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
-  bitmap_layer_set_bitmap(s_team_logo_layer, s_team_logo);
   
   // Load custom fonts
   s_font_mlb_40 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MLB_40));
@@ -871,7 +881,7 @@ static void accel_tap_handler(AccelAxisType axis, int32_t direction) {
 void init(void) {
   // Populate the initial settings for loading
   initialize_settings();
-  
+  currentGameData.status = 99;
 	window = window_create();
   // Set handlers to manage the elements inside the Window
   window_set_window_handlers(window, (WindowHandlers) {
