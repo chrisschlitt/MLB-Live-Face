@@ -301,6 +301,7 @@ function storeSettings(configuration){
     localStorage.setItem(1, favoriteTeam);
   }
   if (configuration.hasOwnProperty('shake_enabeled') === true) {
+    console.log("Updating se to " + parseInt(configuration.shake_enabeled));
     shakeEnabled = parseInt(configuration.shake_enabeled);
     localStorage.setItem(2, shakeEnabled);
   }
