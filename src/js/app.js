@@ -5,8 +5,8 @@ var shakeTime = 5;
 var refreshTime = [3600, 60];
 var primaryColor = "FFFFFF";
 var secondaryColor = "FFFFFF";
-var backgroundColor = "AA0000";
-// var backgroundColor = "000000";
+// var backgroundColor = "AA0000";
+var backgroundColor = "000000";
 /*
 * Future Settings:
 */
@@ -260,13 +260,37 @@ function sendSettings(){
 // Function to load the stored settings
 function loadSettings(){
   favoriteTeam = localStorage.getItem(1);
+  if(favoriteTeam === null){
+    favoriteTeam = 19;
+  }
   shakeEnabled = localStorage.getItem(2);
+  if(shakeEnabled === null){
+    shakeEnabled = 1;
+  }
   shakeTime = localStorage.getItem(3);
+  if(shakeTime === null){
+    shakeTime = 5;
+  }
   refreshTime[0] = localStorage.getItem(4);
+  if(refreshTime[0] === null){
+    refreshTime[0] = 3600;
+  }
   refreshTime[1] = localStorage.getItem(5);
+  if(refreshTime[1] === null){
+    refreshTime[1] = 60;
+  }
   primaryColor = localStorage.getItem(6);
+  if(primaryColor === null){
+    primaryColor = "FFFFFF";
+  }
   secondaryColor = localStorage.getItem(7);
+  if(secondaryColor === null){
+    secondaryColor = "FFFFFF";
+  }
   backgroundColor = localStorage.getItem(8);
+  if(backgroundColor === null){
+    backgroundColor = "000000";
+  }
 }
 
 // Function to store settings

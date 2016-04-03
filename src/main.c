@@ -55,9 +55,7 @@ static char inning[15];
 static char home_score[25];
 static char away_score[25];
 static char s_buffer_prev[8];
-// uint32_t logo[33] = {RESOURCE_ID_PHILLIES, RESOURCE_ID_ANGELS, RESOURCE_ID_ASTROS, RESOURCE_ID_ATHLETICS, RESOURCE_ID_BLUEJAYS, RESOURCE_ID_BRAVES, RESOURCE_ID_BREWERS, RESOURCE_ID_CARDINALS, RESOURCE_ID_CUBS, RESOURCE_ID_DIAMONDBACKS, RESOURCE_ID_DODGERS, RESOURCE_ID_GIANTS, RESOURCE_ID_INDIANS, RESOURCE_ID_MARINERS, RESOURCE_ID_MARLINS, RESOURCE_ID_METS, RESOURCE_ID_NATIONALS, RESOURCE_ID_ORIOLES, RESOURCE_ID_PADRES, RESOURCE_ID_PHILLIES, RESOURCE_ID_PIRATES, RESOURCE_ID_RANGERS, RESOURCE_ID_RAYS, RESOURCE_ID_REDSOX, RESOURCE_ID_REDS, RESOURCE_ID_ROCKIES, RESOURCE_ID_ROYALS, RESOURCE_ID_TIGERS, RESOURCE_ID_TWINS, RESOURCE_ID_WHITESOX, RESOURCE_ID_YANKEES, RESOURCE_ID_NL, RESOURCE_ID_AL};
-
-
+uint32_t logo[31] = {RESOURCE_ID_PHILLIES, RESOURCE_ID_ANGELS, RESOURCE_ID_ASTROS, RESOURCE_ID_ATHLETICS, RESOURCE_ID_BLUEJAYS, RESOURCE_ID_BRAVES, RESOURCE_ID_BREWERS, RESOURCE_ID_CARDINALS, RESOURCE_ID_CUBS, RESOURCE_ID_DIAMONDBACKS, RESOURCE_ID_DODGERS, RESOURCE_ID_GIANTS, RESOURCE_ID_INDIANS, RESOURCE_ID_MARINERS, RESOURCE_ID_MARLINS, RESOURCE_ID_METS, RESOURCE_ID_NATIONALS, RESOURCE_ID_ORIOLES, RESOURCE_ID_PADRES, RESOURCE_ID_PHILLIES, RESOURCE_ID_PIRATES, RESOURCE_ID_RANGERS, RESOURCE_ID_RAYS, RESOURCE_ID_REDSOX, RESOURCE_ID_REDS, RESOURCE_ID_ROCKIES, RESOURCE_ID_ROYALS, RESOURCE_ID_TIGERS, RESOURCE_ID_TWINS, RESOURCE_ID_WHITESOX, RESOURCE_ID_YANKEES};
 
 // Color Resources
 #define ASCII_0_VALU 48
@@ -374,6 +372,9 @@ static void change_colors(){
   update_bases();
   // Set Background Color
   window_set_background_color(window, userSettings.background_color);
+  // Set Favorite Team
+  s_team_logo = gbitmap_create_with_resource(logo[userSettings.favorite_team]);
+  bitmap_layer_set_bitmap(s_team_logo_layer, s_team_logo);
 }
 
 // Function to determine which graphics need to be updated
@@ -695,7 +696,7 @@ static void window_load(Window *window) {
   window_set_background_color(window, userSettings.background_color);
   
   // Load team logo
-  s_team_logo = gbitmap_create_with_resource(RESOURCE_ID_PHI_LOGO);
+  s_team_logo = gbitmap_create_with_resource(RESOURCE_ID_PHILLIES);
   s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
   bitmap_layer_set_bitmap(s_team_logo_layer, s_team_logo);
