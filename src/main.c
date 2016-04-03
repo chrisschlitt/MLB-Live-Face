@@ -192,18 +192,22 @@ enum {
 
 // On Wrist Shake Functions
 static void show_broadcasts(){
-  sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_broadcast);
-  sliding_text_layer_animate_down(s_away_data_layer);
-  sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_broadcast);
-  sliding_text_layer_animate_down(s_home_data_layer);
-  slide_number = 1;
+  if(currentGameData.num_games > 0){
+    sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_broadcast);
+    sliding_text_layer_animate_down(s_away_data_layer);
+    sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_broadcast);
+    sliding_text_layer_animate_down(s_home_data_layer);
+    slide_number = 1;
+  }
 }
 static void show_pitchers(){
-  sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_pitcher);
-  sliding_text_layer_animate_up(s_away_data_layer);
-  sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_pitcher);
-  sliding_text_layer_animate_up(s_home_data_layer);
-  slide_number = 0;
+  if(currentGameData.num_games > 0){
+    sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_pitcher);
+    sliding_text_layer_animate_up(s_away_data_layer);
+    sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_pitcher);
+    sliding_text_layer_animate_up(s_home_data_layer);
+    slide_number = 0;
+  }
 }
 
 static void rotate_clear(SlidingTextLayer* layer_to_clear, int direction){
@@ -633,24 +637,42 @@ static void inning_state_update_proc(Layer *layer, GContext *ctx) {
     GRect bounds = layer_get_bounds(layer);
     // Custom drawing happens here!
     if ((strcmp(currentGameData.inning_half, "Top") == 0) || (strcmp(currentGameData.inning_half, "Middle") == 0)) {
-      GPoint inning_up_arrow[4] = {
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 22 },
-        { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 7) + 34 },
-        { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 7) + 22 },
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 22 }
-      };
+      #ifdef PBL_ROUND
+        GPoint inning_up_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 21 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 6) + 33 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 6) + 33 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 21 }
+        };
+      #else
+        GPoint inning_up_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 22 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 7) + 34 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 7) + 34 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 22 }
+        };
+      #endif
       GPathInfo inning_up_arrowinfo = { .num_points = 4, .points = inning_up_arrow };
       GPath *inning_up_arrow_path = gpath_create(&inning_up_arrowinfo);
       graphics_context_set_fill_color(ctx, userSettings.primary_color);
       gpath_draw_filled(ctx, inning_up_arrow_path);
       gpath_destroy(inning_up_arrow_path);
     } else if ((strcmp(currentGameData.inning_half, "Bottom") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)) {
-      GPoint inning_down_arrow[4] = {
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 34 },
-        { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 7) + 22 },
-        { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 7) + 22 },
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 34 }
-      };
+      #ifdef PBL_ROUND
+        GPoint inning_down_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 33 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 6) + 21 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 6) + 21 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 33 }
+        };
+      #else
+        GPoint inning_down_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 34 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 7) + 22 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 7) + 22 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 34 }
+        };
+      #endif
       GPathInfo inning_down_arrowinfo = { .num_points = 4, .points = inning_down_arrow };
       GPath *inning_down_arrow_path = gpath_create(&inning_down_arrowinfo);
       graphics_context_set_fill_color(ctx, userSettings.primary_color);
@@ -927,8 +949,7 @@ void init(void) {
 	app_message_register_inbox_dropped(in_dropped_handler); 
 	app_message_register_outbox_failed(out_failed_handler);
 		
-	// app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
-	app_message_open(800, 200);
+	app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
 	
 }
 
