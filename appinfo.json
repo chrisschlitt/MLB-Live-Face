@@ -30,7 +30,7 @@
         "TYPE": 0
     },
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "Chris Schlitt",
     "enableMultiJS": true,
@@ -39,8 +39,182 @@
     "resources": {
         "media": [
             {
+                "file": "images/was.png",
+                "name": "NATIONALS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tor.png",
+                "name": "BLUEJAYS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tex.png",
+                "name": "RANGERS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/tb.png",
+                "name": "RAYS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/stl.png",
+                "name": "CARDINALS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/sf.png",
+                "name": "GIANTS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/sea.png",
+                "name": "MARINERS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/sd.png",
+                "name": "PADRES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/pit.png",
+                "name": "PIRATES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
                 "file": "images/phi.bmp",
-                "name": "PHI_LOGO",
+                "name": "PHILLIES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/oak.png",
+                "name": "ATHLETICS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/nyy.png",
+                "name": "YANKEES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/nym.png",
+                "name": "METS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/min.png",
+                "name": "TWINS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/mil.png",
+                "name": "BREWERS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/mia.png",
+                "name": "MARLINS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/lad.png",
+                "name": "DODGERS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/laa.png",
+                "name": "ANGELS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/kc.png",
+                "name": "ROYALS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/hou.png",
+                "name": "ASTROS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/det.png",
+                "name": "TIGERS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/col.png",
+                "name": "ROCKIES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/cle.png",
+                "name": "INDIANS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/cin.png",
+                "name": "REDS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/chw.png",
+                "name": "WHITESOX",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/chc.png",
+                "name": "CUBS",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/bos.png",
+                "name": "REDSOX",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/bal.png",
+                "name": "ORIOLES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/atl.png",
+                "name": "BRAVES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
+                "file": "images/ari.png",
+                "name": "DIAMONDBACKS",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
@@ -51,8 +225,8 @@
                 "type": "font"
             },
             {
-                "file": "fonts/CAPITAL_FONT.ttf",
-                "name": "FONT_CAPITAL_20",
+                "file": "fonts/MLB_FONT.ttf",
+                "name": "FONT_MLB_40",
                 "targetPlatforms": null,
                 "type": "font"
             },
@@ -63,8 +237,8 @@
                 "type": "font"
             },
             {
-                "file": "fonts/MLB_FONT.ttf",
-                "name": "FONT_MLB_40",
+                "file": "fonts/CAPITAL_FONT.ttf",
+                "name": "FONT_CAPITAL_20",
                 "targetPlatforms": null,
                 "type": "font"
             }
@@ -73,7 +247,6 @@
     "sdkVersion": "3",
     "shortName": "MLB Live Face",
     "targetPlatforms": [
-        "aplite",
         "basalt",
         "chalk"
     ],
