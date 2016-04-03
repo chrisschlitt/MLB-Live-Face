@@ -192,18 +192,22 @@ enum {
 
 // On Wrist Shake Functions
 static void show_broadcasts(){
-  sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_broadcast);
-  sliding_text_layer_animate_down(s_away_data_layer);
-  sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_broadcast);
-  sliding_text_layer_animate_down(s_home_data_layer);
-  slide_number = 1;
+  if(currentGameData.num_games > 0){
+    sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_broadcast);
+    sliding_text_layer_animate_down(s_away_data_layer);
+    sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_broadcast);
+    sliding_text_layer_animate_down(s_home_data_layer);
+    slide_number = 1;
+  }
 }
 static void show_pitchers(){
-  sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_pitcher);
-  sliding_text_layer_animate_up(s_away_data_layer);
-  sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_pitcher);
-  sliding_text_layer_animate_up(s_home_data_layer);
-  slide_number = 0;
+  if(currentGameData.num_games > 0){
+    sliding_text_layer_set_next_text(s_away_data_layer, currentGameData.away_pitcher);
+    sliding_text_layer_animate_up(s_away_data_layer);
+    sliding_text_layer_set_next_text(s_home_data_layer, currentGameData.home_pitcher);
+    sliding_text_layer_animate_up(s_home_data_layer);
+    slide_number = 0;
+  }
 }
 
 static void rotate_clear(SlidingTextLayer* layer_to_clear, int direction){
@@ -603,16 +607,29 @@ static void bso_update_proc(Layer *layer, GContext *ctx) {
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.primary_color);
     graphics_context_set_stroke_width(ctx, 4);
-    if(currentGameData.outs == 2){
-      graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) + 11, (bounds.size.h - 15)), 6);
-      graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) - 11, (bounds.size.h - 15)), 6);
-    } else if(currentGameData.outs > 0) {
-      graphics_fill_circle(ctx, GPoint((bounds.size.w) / 2, (bounds.size.h - 14)), 6);
-      if ((strcmp(currentGameData.inning_half, "Middle") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)){
-        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) - 21, (bounds.size.h - 15)), 6);
-        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) + 21, (bounds.size.h - 15)), 6);
+    #ifdef PBL_ROUND
+      if(currentGameData.outs == 2){
+        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) + 11, (bounds.size.h - 15)), 6);
+        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) - 11, (bounds.size.h - 15)), 6);
+      } else if(currentGameData.outs > 0) {
+        graphics_fill_circle(ctx, GPoint((bounds.size.w) / 2, (bounds.size.h - 14)), 6);
+        if ((strcmp(currentGameData.inning_half, "Middle") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)){
+          graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) - 21, (bounds.size.h - 15)), 6);
+          graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) + 21, (bounds.size.h - 15)), 6);
+        }
       }
-    }
+    #else
+      if(currentGameData.outs == 2){
+        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 20) * 19, ((bounds.size.h / 4) * 3 + 23)), 6);
+        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 20) * 19, ((bounds.size.h / 4) * 3 + 1)), 6);
+      } else if(currentGameData.outs > 0) {
+        graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 20) * 19, (((bounds.size.h / 4) * 3 + 12))), 6);
+        if ((strcmp(currentGameData.inning_half, "Middle") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)){
+          graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 20) * 19, ((bounds.size.h / 4) * 3 - 7)), 6);
+          graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 20) * 19, ((bounds.size.h / 4) * 3 + 31)), 6);
+        }
+      }
+    #endif
   }
 }
 static void inning_state_update_proc(Layer *layer, GContext *ctx) {
@@ -620,27 +637,45 @@ static void inning_state_update_proc(Layer *layer, GContext *ctx) {
     GRect bounds = layer_get_bounds(layer);
     // Custom drawing happens here!
     if ((strcmp(currentGameData.inning_half, "Top") == 0) || (strcmp(currentGameData.inning_half, "Middle") == 0)) {
-      GPoint inning_up_arrow[4] = {
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 21 },
-        { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 6) + 33 },
-        { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 6) + 33 },
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 21 }
-      };
+      #ifdef PBL_ROUND
+        GPoint inning_up_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 21 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 6) + 33 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 6) + 33 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 21 }
+        };
+      #else
+        GPoint inning_up_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 22 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 7) + 34 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 7) + 34 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 22 }
+        };
+      #endif
       GPathInfo inning_up_arrowinfo = { .num_points = 4, .points = inning_up_arrow };
       GPath *inning_up_arrow_path = gpath_create(&inning_up_arrowinfo);
-      graphics_context_set_fill_color(ctx, userSettings.secondary_color);
+      graphics_context_set_fill_color(ctx, userSettings.primary_color);
       gpath_draw_filled(ctx, inning_up_arrow_path);
       gpath_destroy(inning_up_arrow_path);
     } else if ((strcmp(currentGameData.inning_half, "Bottom") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)) {
-      GPoint inning_down_arrow[4] = {
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 33 },
-        { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 6) + 21 },
-        { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 6) + 21 },
-        { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 33 }
-      };
+      #ifdef PBL_ROUND
+        GPoint inning_down_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 33 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 6) + 21 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 6) + 21 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 6) + 33 }
+        };
+      #else
+        GPoint inning_down_arrow[4] = {
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 34 },
+          { .x = ((bounds.size.w / 3) * 2) - 12, .y = ((bounds.size.h / 10) * 7) + 22 },
+          { .x = ((bounds.size.w / 3) * 2) + 2, .y = ((bounds.size.h / 10) * 7) + 22 },
+          { .x = ((bounds.size.w / 3) * 2) - 5, .y = ((bounds.size.h / 10) * 7) + 34 }
+        };
+      #endif
       GPathInfo inning_down_arrowinfo = { .num_points = 4, .points = inning_down_arrow };
       GPath *inning_down_arrow_path = gpath_create(&inning_down_arrowinfo);
-      graphics_context_set_fill_color(ctx, userSettings.secondary_color);
+      graphics_context_set_fill_color(ctx, userSettings.primary_color);
       gpath_draw_filled(ctx, inning_down_arrow_path);
       gpath_destroy(inning_down_arrow_path);
     }
@@ -708,7 +743,11 @@ static void window_load(Window *window) {
   window_set_background_color(window, userSettings.background_color);
   
   // Load team logo
-  s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
+  #ifdef PBL_ROUND
+    s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
+  #else
+    s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
+  #endif
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
   
   // Load custom fonts
@@ -719,13 +758,23 @@ static void window_load(Window *window) {
   
   // Create the TextLayer with specific bounds
   s_time_layer = text_layer_create(GRect(0, ((bounds.size.h / 10) * 4) - 6, bounds.size.w, 54));
-  s_away_team_layer = sliding_text_layer_create(GRect((bounds.size.w / 5), ((bounds.size.h / 10) * 6) + 5, 50, 25));
-  s_home_team_layer = sliding_text_layer_create(GRect((bounds.size.w / 5), ((bounds.size.h / 10) * 7) + 9, 50, 25));
-  s_game_time_layer = sliding_text_layer_create(GRect((bounds.size.w / 5) * 2, ((bounds.size.h / 10) * 8) + 11, 50, 25));
-  s_away_data_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 2) + 5, ((bounds.size.h / 10) * 6) + 5, ((bounds.size.w / 5) * 3) - 5, 25));
-  s_home_data_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 2) + 5, ((bounds.size.h / 10) * 7) + 8, ((bounds.size.w / 5) * 3) - 5, 25));
-  s_inning_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 3), ((bounds.size.h / 10) * 6) + 15, ((bounds.size.w / 5) * 3) - 5, 45));
-  s_loading_layer = sliding_text_layer_create(GRect(0, ((bounds.size.h / 10) * 6) + 15, bounds.size.w, 45));
+  #ifdef PBL_ROUND
+    s_away_team_layer = sliding_text_layer_create(GRect((bounds.size.w / 5), ((bounds.size.h / 10) * 6) + 5, 50, 25));
+    s_home_team_layer = sliding_text_layer_create(GRect((bounds.size.w / 5), ((bounds.size.h / 10) * 7) + 9, 50, 25));
+    s_game_time_layer = sliding_text_layer_create(GRect((bounds.size.w / 5) * 2, ((bounds.size.h / 10) * 8) + 11, 50, 25));
+    s_away_data_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 2) + 5, ((bounds.size.h / 10) * 6) + 5, ((bounds.size.w / 5) * 3) - 5, 25));
+    s_home_data_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 2) + 5, ((bounds.size.h / 10) * 7) + 8, ((bounds.size.w / 5) * 3) - 5, 25));
+    s_inning_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 3), ((bounds.size.h / 10) * 6) + 15, ((bounds.size.w / 5) * 3) - 5, 45));
+    s_loading_layer = sliding_text_layer_create(GRect(0, ((bounds.size.h / 10) * 6) + 15, bounds.size.w, 45));
+  #else
+    s_away_team_layer = sliding_text_layer_create(GRect((bounds.size.w / 15), ((bounds.size.h / 10) * 7) + 2, 50, 25));
+    s_home_team_layer = sliding_text_layer_create(GRect((bounds.size.w / 15), ((bounds.size.h / 10) * 8) + 10, 50, 25));
+    s_game_time_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 4) - 4, ((bounds.size.h / 10) * 7) + 14, 50, 25));
+    s_away_data_layer = sliding_text_layer_create(GRect(((bounds.size.w / 15) * 2) + 30, ((bounds.size.h / 10) * 7) + 2, ((bounds.size.w / 5) * 4) - 0, 30));
+    s_home_data_layer = sliding_text_layer_create(GRect(((bounds.size.w / 15) * 2) + 30, ((bounds.size.h / 10) * 8) + 10, ((bounds.size.w / 5) * 4) - 0, 30));
+    s_inning_layer = sliding_text_layer_create(GRect(((bounds.size.w / 5) * 3), ((bounds.size.h / 10) * 7) + 14, ((bounds.size.w / 5) * 3) - 5, 45));
+    s_loading_layer = sliding_text_layer_create(GRect(0, ((bounds.size.h / 10) * 7) + 14, bounds.size.w, 45));
+  #endif
   
   // Create the canvas layers
   s_bso_layer = layer_create(bounds);
