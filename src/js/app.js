@@ -211,7 +211,6 @@ function processGameData(gameData){
 // Function to get MLB data from personal server
 function getGameData(offset){
   var method = 'GET';
-  offset = 1;
   var url = 'http://pebble.phl.chs.network/mlb/api.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset;
   // Create the request
   var request = new XMLHttpRequest();
