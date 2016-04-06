@@ -87,10 +87,6 @@ unsigned int HexStringToUInt(char const* hexstring)
     }
     return result;  
 }
-// Debugging purposes
-static void log_memory(int code){
-  APP_LOG(APP_LOG_LEVEL_INFO, "%d : Memory Used = %d Free = %d", code, heap_bytes_used(), heap_bytes_free());
-}
 
 // Game Data data type
 typedef struct GameDataSets {
@@ -957,7 +953,7 @@ void init(void) {
   #ifdef PBL_COLOR
 	  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
 	#else
-    app_message_open(400, 100);
+    app_message_open(300, 50);
 	#endif
 
 }
