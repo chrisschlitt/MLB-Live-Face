@@ -953,7 +953,8 @@ void init(void) {
 	app_message_register_inbox_dropped(in_dropped_handler); 
 	app_message_register_outbox_failed(out_failed_handler);
 		
-	app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+	// app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+	app_message_open(app_message_inbox_size_maximum(), 200);
 	
 }
 
