@@ -746,7 +746,11 @@ static void window_load(Window *window) {
   #ifdef PBL_ROUND
     s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
   #else
-    s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
+    #ifdef PBL_COLOR
+      s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
+    #else
+      s_team_logo_layer = bitmap_layer_create(GRect(0, 0, 144, 108));
+    #endif
   #endif
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
   

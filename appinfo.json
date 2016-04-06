@@ -247,11 +247,12 @@
     "sdkVersion": "3",
     "shortName": "MLB Live Face",
     "targetPlatforms": [
+        "aplite",
         "basalt",
         "chalk"
     ],
     "uuid": "3ae16b33-47d1-4479-8f41-b5face25f3ca",
-    "versionLabel": "2.5",
+    "versionLabel": "2.6",
     "watchapp": {
         "watchface": true
     }
