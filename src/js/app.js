@@ -361,7 +361,8 @@ Pebble.addEventListener('webviewclosed', function(e) {
 
 Pebble.addEventListener('showConfiguration', function() {
   loadSettings();
-  var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime;
+  var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
+  var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&platform=' + watch.platform;
   Pebble.openURL(url);
 });
 

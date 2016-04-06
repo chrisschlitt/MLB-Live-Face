@@ -39,6 +39,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/phi.png",
+                "name": "PHILLIES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
                 "file": "images/was.png",
                 "name": "NATIONALS",
                 "targetPlatforms": null,
@@ -89,12 +95,6 @@
             {
                 "file": "images/pit.png",
                 "name": "PIRATES",
-                "targetPlatforms": null,
-                "type": "bitmap"
-            },
-            {
-                "file": "images/phi.bmp",
-                "name": "PHILLIES",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
@@ -250,7 +250,7 @@
         "aplite"
     ],
     "uuid": "3ae16b33-47d1-4479-8f41-b5face25f3ca",
-    "versionLabel": "2.6",
+    "versionLabel": "3.0",
     "watchapp": {
         "watchface": true
     }

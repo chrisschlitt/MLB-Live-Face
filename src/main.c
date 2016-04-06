@@ -747,10 +747,11 @@ static void window_load(Window *window) {
     s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
   #else
     #ifdef PBL_COLOR
-      s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
+      // s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
     #else
-      s_team_logo_layer = bitmap_layer_create(GRect(0, 0, 144, 108));
+      // s_team_logo_layer = bitmap_layer_create(GRect(0, 0, 144, 108));
     #endif
+    s_team_logo_layer = bitmap_layer_create(GRect(-18, -6, bounds.size.w + 18, 119));
   #endif
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
   
@@ -953,9 +954,12 @@ void init(void) {
 	app_message_register_inbox_dropped(in_dropped_handler); 
 	app_message_register_outbox_failed(out_failed_handler);
 		
-	// app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
-	app_message_open(app_message_inbox_size_maximum(), 200);
-	
+  #ifdef PBL_COLOR
+	  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+	#else
+    app_message_open(400, 100);
+	#endif
+
 }
 
 void deinit(void) {
