@@ -39,6 +39,12 @@
     "resources": {
         "media": [
             {
+                "file": "images/sd.png",
+                "name": "PADRES",
+                "targetPlatforms": null,
+                "type": "bitmap"
+            },
+            {
                 "file": "images/was.png",
                 "name": "NATIONALS",
                 "targetPlatforms": null,
@@ -77,12 +83,6 @@
             {
                 "file": "images/sea.png",
                 "name": "MARINERS",
-                "targetPlatforms": null,
-                "type": "bitmap"
-            },
-            {
-                "file": "images/sd.png",
-                "name": "PADRES",
                 "targetPlatforms": null,
                 "type": "bitmap"
             },
@@ -226,13 +226,13 @@
             },
             {
                 "file": "fonts/MLB_FONT.ttf",
-                "name": "FONT_MLB_40",
+                "name": "FONT_MLB_18",
                 "targetPlatforms": null,
                 "type": "font"
             },
             {
                 "file": "fonts/MLB_FONT.ttf",
-                "name": "FONT_MLB_18",
+                "name": "FONT_MLB_40",
                 "targetPlatforms": null,
                 "type": "font"
             },

@@ -173,7 +173,7 @@ function correctTimezone(data){
     }
     var game_time = data.game_data[game_number].game_time;
     var game_hours = game_time.split(":")[0];
-    var new_game_hours = parseInt(game_hours) + getTimezoneOffsetHours();
+    var new_game_hours = parseInt(game_hours) - getTimezoneOffsetHours();
     if (new_game_hours > 12){
       new_game_hours = new_game_hours - 12;
     } else if (new_game_hours < 1){
@@ -211,6 +211,7 @@ function processGameData(gameData){
 // Function to get MLB data from personal server
 function getGameData(offset){
   var method = 'GET';
+  offset = 1;
   var url = 'http://pebble.phl.chs.network/mlb/api.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset;
   // Create the request
   var request = new XMLHttpRequest();
@@ -300,7 +301,6 @@ function loadSettings(){
 
 // Function to store settings
 function storeSettings(configuration){
-  // console.log('Configuration window returned: ', JSON.stringify(configuration));
   if (configuration.hasOwnProperty('favorite_team') === true) {
     favoriteTeam = parseInt(configuration.favorite_team);
     localStorage.setItem(1, favoriteTeam);
@@ -365,4 +365,5 @@ Pebble.addEventListener('showConfiguration', function() {
   var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime;
   Pebble.openURL(url);
 });
+
 
