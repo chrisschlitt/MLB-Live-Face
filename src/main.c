@@ -133,9 +133,15 @@ static void initialize_settings(){
   userSettings.shake_time = 5;
   userSettings.refresh_time_off = 3600;
   userSettings.refresh_time_on = 180;
-  userSettings.primary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
-  userSettings.secondary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
-  userSettings.background_color = GColorFromHEX(HexStringToUInt("000000"));
+  #ifdef PBL_COLOR
+    userSettings.primary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
+    userSettings.secondary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
+    userSettings.background_color = GColorFromHEX(HexStringToUInt("000000"));
+  #else
+    userSettings.primary_color = GColorWhite;
+    userSettings.secondary_color = GColorWhite;
+    userSettings.background_color = GColorBlack;
+  #endif
 }
 
 // Global Settings
@@ -469,13 +475,25 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
           userSettings.refresh_time_on = (int)t->value->int32;
           break;
         case PREF_PRIMARY_COLOR:
-          userSettings.primary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #ifdef PBL_COLOR
+            userSettings.primary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #else
+            userSettings.primary_color = GColorBlack;
+          #endif
           break;
         case PREF_SECONDARY_COLOR:
-          userSettings.secondary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #ifdef PBL_COLOR
+            userSettings.secondary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #else
+            userSettings.secondary_color = GColorBlack;
+          #endif
           break;
         case PREF_BACKGROUND_COLOR:
-          userSettings.background_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #ifdef PBL_COLOR
+            userSettings.background_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #else
+            userSettings.background_color = GColorBlack;
+          #endif
           break;
         default:
           break;
@@ -602,7 +620,9 @@ static void bso_update_proc(Layer *layer, GContext *ctx) {
     GRect bounds = layer_get_bounds(layer);
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.primary_color);
+		#ifdef PBL_COLOR
     graphics_context_set_stroke_width(ctx, 4);
+		#endif
     #ifdef PBL_ROUND
       if(currentGameData.outs == 2){
         graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) + 11, (bounds.size.h - 15)), 6);
@@ -683,7 +703,9 @@ static void bases_update_proc(Layer *layer, GContext *ctx) {
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.secondary_color);
     graphics_context_set_stroke_color(ctx, userSettings.secondary_color);
+    #ifdef PBL_COLOR
     graphics_context_set_stroke_width(ctx, 3);
+		#endif
     GPoint first_points[4] = {
       { .x = (bounds.size.w - 20), .y = bounds.size.h / 2 },
       { .x = bounds.size.w, .y = (bounds.size.h / 2) + 20 },
@@ -968,4 +990,4 @@ int main( void ) {
 	init();
 	app_event_loop();
 	deinit();
-}
+	}
