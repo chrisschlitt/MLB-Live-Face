@@ -87,6 +87,13 @@ unsigned int HexStringToUInt(char const* hexstring)
     }
     return result;  
 }
+GColor GColorFromStringBW(char* color){
+  if(strcmp(color, "FFFFFF") == 0){
+    return GColorWhite;
+  } else {
+    return GColorBlack;
+  }
+}
 
 // Game Data data type
 typedef struct GameDataSets {
@@ -478,21 +485,21 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
           #ifdef PBL_COLOR
             userSettings.primary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
           #else
-            userSettings.primary_color = GColorBlack;
+            userSettings.primary_color = GColorFromStringBW(t->value->cstring);
           #endif
           break;
         case PREF_SECONDARY_COLOR:
           #ifdef PBL_COLOR
             userSettings.secondary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
           #else
-            userSettings.secondary_color = GColorBlack;
+            userSettings.secondary_color = GColorFromStringBW(t->value->cstring);
           #endif
           break;
         case PREF_BACKGROUND_COLOR:
           #ifdef PBL_COLOR
             userSettings.background_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
           #else
-            userSettings.background_color = GColorBlack;
+            userSettings.background_color = GColorFromStringBW(t->value->cstring);
           #endif
           break;
         default:
@@ -971,13 +978,15 @@ void init(void) {
 	app_message_register_inbox_received(in_received_handler); 
 	app_message_register_inbox_dropped(in_dropped_handler); 
 	app_message_register_outbox_failed(out_failed_handler);
-		
+	
+  /*
   #ifdef PBL_COLOR
 	  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
 	#else
     app_message_open(300, 50);
 	#endif
-
+  */
+  app_message_open(300, 50);
 }
 
 void deinit(void) {
