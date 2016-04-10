@@ -32,9 +32,9 @@
     "capabilities": [
         "configurable"
     ],
-    "companyName": "MakeAwesomeHappen",
+    "companyName": "Chris Schlitt",
     "enableMultiJS": false,
-    "longName": "watchface",
+    "longName": "MLB Live Face",
     "projectType": "native",
     "resources": {
         "media": [
@@ -211,14 +211,14 @@
         ]
     },
     "sdkVersion": "3",
-    "shortName": "watchface",
+    "shortName": "MLB Live Face",
     "targetPlatforms": [
         "aplite",
         "basalt",
         "chalk"
     ],
-    "uuid": "53dbb364-aa15-4972-89f9-eb6532c9db62",
-    "versionLabel": "1.0",
+    "uuid": "3ae16b33-47d1-4479-8f41-b5face25f3ca",
+    "versionLabel": "3.0",
     "watchapp": {
         "watchface": false
     }

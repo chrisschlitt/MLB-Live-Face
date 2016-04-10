@@ -1,0 +1,1155 @@
+Archive member included because of file (symbol)
+
+/Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                              src/main.c.88.o (accel_tap_service_subscribe)
+/Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+                              src/main.c.88.o (strspn)
+
+Allocating common symbols
+Common symbol       size              file
+
+window              0x4               src/main.c.88.o
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .bss           0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .init          0x0000000000000000        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .fini          0x0000000000000000        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .text          0x0000000000000000       0x68 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .bss           0x0000000000000000       0x1c /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .init_array    0x0000000000000000        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .fini_array    0x0000000000000000        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .eh_frame      0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .jcr           0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .text          0x0000000000000000        0x0 src/main.c.88.o
+ .bss           0x0000000000000000        0x0 src/main.c.88.o
+ .text.HexStringToUInt
+                0x0000000000000000       0x54 src/main.c.88.o
+ .text          0x0000000000000000        0x0 src/sliding-text-layer.c.88.o
+ .bss           0x0000000000000000        0x0 src/sliding-text-layer.c.88.o
+ .text.animate_bounce
+                0x0000000000000000       0x70 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_animate_bounce_up
+                0x0000000000000000        0x6 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_animate_bounce_down
+                0x0000000000000000        0x6 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_set_duration
+                0x0000000000000000       0x10 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_set_animation_curve
+                0x0000000000000000       0x12 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_set_vertical_adjustment
+                0x0000000000000000       0x12 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_is_animating
+                0x0000000000000000        0xe src/sliding-text-layer.c.88.o
+ .text          0x0000000000000000        0x0 aplite/appinfo.auto.c.88.o
+ .bss           0x0000000000000000        0x0 aplite/appinfo.auto.c.88.o
+ .bss           0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_data_service_subscribe__deprecated
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_data_service_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_service_peek
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_service_set_samples_per_update
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_service_set_sampling_rate
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_add_to_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_clear_icon
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_get_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_remove_from_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_set_background_color
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_set_click_config_provider
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_set_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.action_bar_layer_set_icon
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.animation_is_scheduled
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.animation_set_delay
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.animation_unschedule
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.animation_unschedule_all
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_comm_get_sniff_interval
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_comm_set_sniff_interval
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_log  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_sync_deinit
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_sync_get
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_sync_init
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_sync_set
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_timer_cancel
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_timer_register
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_timer_reschedule
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.atan2_lookup
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.atoi     0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.atol     0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.battery_state_service_peek
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.battery_state_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.battery_state_service_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.bitmap_layer_set_alignment
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.bitmap_layer_set_background_color
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.bluetooth_connection_service_peek
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.bluetooth_connection_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.bluetooth_connection_service_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.click_number_of_clicks_counted
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.click_recognizer_get_button_id
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.clock_copy_time_string
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.cos_lookup
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.data_logging_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.data_logging_finish
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.data_logging_log
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_calc_buffer_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_calc_buffer_size_from_tuplets
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_merge
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_read_begin_from_buffer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_serialize_tuplets
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_serialize_tuplets_to_buffer__deprecated
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_serialize_tuplets_to_buffer_with_iter
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_begin
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_cstring
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_end
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_int
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_int16
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_int32
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_int8
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_tuplet
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_uint16
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_uint32
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_write_uint8
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.fonts_get_system_font
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gbitmap_create_as_sub_bitmap
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gbitmap_create_with_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gmtime   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gpath_draw_filled_legacy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gpath_move_to
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gpath_rotate_to
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gpoint_equal
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_context_set_compositing_mode
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_draw_bitmap_in_rect
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_draw_circle
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_draw_line
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_draw_pixel
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_draw_rect
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_draw_round_rect
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_fill_rect
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_text_layout_get_max_used_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_align
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_center_point
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_clip
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_contains_point
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_crop
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_equal
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_is_empty
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.grect_standardize
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.gsize_equal
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.inverter_layer_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.inverter_layer_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.inverter_layer_get_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_get_clips
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_get_frame
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_get_hidden
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_get_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_insert_above_sibling
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_insert_below_sibling
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_remove_child_layers
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_remove_from_parent
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_set_bounds
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_set_clips
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_set_frame
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.layer_set_hidden
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.light_enable
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.light_enable_interaction
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.malloc   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.memmove  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_cell_basic_draw
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_cell_basic_header_draw
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_cell_title_draw
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_index_compare
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_get_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_get_scroll_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_get_selected_index
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_reload_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_set_callbacks__deprecated
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_set_click_config_onto_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_set_selected_index
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_set_selected_next
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_get_value
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_set_label
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_set_max
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_set_min
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_set_step_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_set_value
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_delete
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_exists
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_get_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_read_bool
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_read_data__deprecated
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_read_int
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_read_string__deprecated
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_write_bool
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_write_data__deprecated
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_write_int
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_write_string
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.property_animation_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.property_animation_create_layer_frame
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.property_animation_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.property_animation_update_gpoint
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.property_animation_update_grect
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.property_animation_update_int16
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.psleep   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.resource_load
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.resource_load_byte_range
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.resource_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_layer_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_layer_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_layer_increment_angle
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_layer_set_angle
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_layer_set_corner_clip_color
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_set_compositing_mode
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.rot_bitmap_set_src_ic
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_add_child
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_get_content_offset
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_get_content_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_get_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_get_shadow_hidden
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_scroll_down_click_handler
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_scroll_up_click_handler
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_callbacks
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_click_config_onto_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_content_offset
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_content_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_frame
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.scroll_layer_set_shadow_hidden
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.simple_menu_layer_create
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.simple_menu_layer_destroy
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.simple_menu_layer_get_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.simple_menu_layer_get_selected_index
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.simple_menu_layer_set_selected_index
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.sin_lookup
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.srand    0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.strcat   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.strlen   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.strncat  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.strncmp  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.strncpy  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.text_layer_get_content_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.text_layer_get_text
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.text_layer_set_overflow_mode
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.text_layer_set_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.tick_timer_service_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.time_ms  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.vibes_cancel
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.vibes_double_pulse
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.vibes_enqueue_custom_pattern
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.vibes_long_pulse
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.vibes_short_pulse
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_get_click_config_provider
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_get_fullscreen
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_is_loaded
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_set_click_config_provider
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_set_click_config_provider_with_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_set_fullscreen
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_set_status_bar_icon
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_stack_contains_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_stack_get_top_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_stack_pop
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_stack_pop_all
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_stack_remove
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_focus_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_focus_service_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_get_user_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_set_user_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_message_get_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_message_inbox_size_maximum
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_message_outbox_size_maximum
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_message_register_outbox_sent
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_message_set_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_long_click_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_multi_click_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_raw_click_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_set_click_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_single_click_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_single_repeating_click_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_serialize_tuplets_to_buffer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_read_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_read_string
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.persist_write_data
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.dict_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_text_layout_get_content_size
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.simple_menu_layer_get_menu_layer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_data_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.calloc   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.bitmap_layer_get_bitmap
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.menu_layer_set_callbacks
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.window_get_click_config_context
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.number_window_get_window
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.realloc  0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.__gbitmap_create_blank
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.click_recognizer_is_repeating
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.accel_raw_data_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_worker_is_running
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_worker_kill
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_worker_launch
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_worker_message_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_worker_message_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.app_worker_send_message
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.worker_event_loop
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.worker_launch_app
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.heap_bytes_free
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.heap_bytes_used
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.compass_service_peek
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.compass_service_set_heading_filter
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.compass_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.compass_service_unsubscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.uuid_equal
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.uuid_to_string
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.animation_set_custom_curve
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.watch_info_get_color
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.watch_info_get_firmware_version
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.watch_info_get_model
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_capture_frame_buffer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_frame_buffer_is_captured
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.graphics_release_frame_buffer
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.clock_to_timestamp
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.launch_reason
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.wakeup_cancel
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.wakeup_cancel_all
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.wakeup_get_launch_event
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.wakeup_query
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.wakeup_schedule
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.wakeup_service_subscribe
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.clock_is_timezone_set
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.i18n_get_system_locale
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text._localeconv_r
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.setlocale
+                0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text.mktime   0x0000000000000000        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .text          0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+ .bss           0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+ .text          0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+ .bss           0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+ .eh_frame      0x0000000000000000        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+ .jcr           0x0000000000000000        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+ .text          0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+ .bss           0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+ .init          0x0000000000000000        0x8 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+ .fini          0x0000000000000000        0x8 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+APP              0x0000000000000000 0x0000000000006000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+LOAD /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+LOAD src/main.c.88.o
+LOAD src/sliding-text-layer.c.88.o
+LOAD aplite/appinfo.auto.c.88.o
+LOAD /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a
+START GROUP
+LOAD /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/libgcc.a
+LOAD /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a
+END GROUP
+LOAD /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+LOAD /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.header         0x0000000000000000       0x82
+ *(.pbl_header)
+ .pbl_header    0x0000000000000000       0x82 aplite/appinfo.auto.c.88.o
+                0x0000000000000000                __pbl_app_info
+
+.note.gnu.build-id
+                0x0000000000000082       0x26
+                0x0000000000000082                PROVIDE (BUILD_ID, .)
+ *(.note.gnu.build-id)
+ *fill*         0x0000000000000082        0x2 00
+ .note.gnu.build-id
+                0x0000000000000084       0x24 linker stubs
+
+.text           0x00000000000000a8     0x1f07
+ *(.text)
+ .text          0x00000000000000a8       0x14 /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ *(.text.*)
+ .text.update_time
+                0x00000000000000bc       0xb8 src/main.c.88.o
+ .text.request_update
+                0x0000000000000174        0xe src/main.c.88.o
+ .text.out_failed_handler
+                0x0000000000000182        0x4 src/main.c.88.o
+ .text.in_dropped_handler
+                0x0000000000000186        0x4 src/main.c.88.o
+ *fill*         0x000000000000018a        0x2 00
+ .text.update_bso
+                0x000000000000018c       0x10 src/main.c.88.o
+ .text.update_inning_state
+                0x000000000000019c       0x10 src/main.c.88.o
+ .text.update_bases
+                0x00000000000001ac       0x10 src/main.c.88.o
+ .text.change_teams
+                0x00000000000001bc       0x60 src/main.c.88.o
+ .text.accel_tap_handler
+                0x000000000000021c       0x64 src/main.c.88.o
+ .text.tick_handler
+                0x0000000000000280       0xc0 src/main.c.88.o
+ .text.endGame  0x0000000000000340       0xe8 src/main.c.88.o
+ .text.window_unload
+                0x0000000000000428       0xf4 src/main.c.88.o
+ .text.window_load
+                0x000000000000051c      0x548 src/main.c.88.o
+ .text.bases_update_proc
+                0x0000000000000a64      0x194 src/main.c.88.o
+ .text.inning_state_update_proc
+                0x0000000000000bf8      0x158 src/main.c.88.o
+ .text.bso_update_proc
+                0x0000000000000d50      0x110 src/main.c.88.o
+ .text.rotate_clear.constprop.0
+                0x0000000000000e60       0x1c src/main.c.88.o
+ .text.newGame  0x0000000000000e7c       0x78 src/main.c.88.o
+ .text.GColorFromStringBW
+                0x0000000000000ef4       0x18 src/main.c.88.o
+                0x0000000000000ef4                GColorFromStringBW
+ .text.in_received_handler
+                0x0000000000000f0c      0x780 src/main.c.88.o
+ .text.init     0x000000000000168c       0xd8 src/main.c.88.o
+                0x000000000000168c                init
+ .text.deinit   0x0000000000001764       0x24 src/main.c.88.o
+                0x0000000000001764                deinit
+ .text.startup.main
+                0x0000000000001788       0x12 src/main.c.88.o
+                0x0000000000001788                main
+ .text.animation_stopped_bounce
+                0x000000000000179a        0xe src/sliding-text-layer.c.88.o
+ .text.animation_started
+                0x00000000000017a8        0xe src/sliding-text-layer.c.88.o
+ *fill*         0x00000000000017b6        0x2 00
+ .text.animate  0x00000000000017b8       0x70 src/sliding-text-layer.c.88.o
+ .text.animation_stopped
+                0x0000000000001828       0x1e src/sliding-text-layer.c.88.o
+ .text.render   0x0000000000001846      0x14a src/sliding-text-layer.c.88.o
+ .text.update_bounce
+                0x0000000000001990       0x72 src/sliding-text-layer.c.88.o
+ .text.update   0x0000000000001a02       0x72 src/sliding-text-layer.c.88.o
+ .text.sliding_text_layer_create
+                0x0000000000001a74       0x6c src/sliding-text-layer.c.88.o
+                0x0000000000001a74                sliding_text_layer_create
+ .text.sliding_text_layer_destroy
+                0x0000000000001ae0       0x12 src/sliding-text-layer.c.88.o
+                0x0000000000001ae0                sliding_text_layer_destroy
+ .text.sliding_text_layer_animate_up
+                0x0000000000001af2        0x6 src/sliding-text-layer.c.88.o
+                0x0000000000001af2                sliding_text_layer_animate_up
+ .text.sliding_text_layer_animate_down
+                0x0000000000001af8        0x6 src/sliding-text-layer.c.88.o
+                0x0000000000001af8                sliding_text_layer_animate_down
+ .text.sliding_text_layer_set_text
+                0x0000000000001afe       0x24 src/sliding-text-layer.c.88.o
+                0x0000000000001afe                sliding_text_layer_set_text
+ .text.sliding_text_layer_set_next_text
+                0x0000000000001b22       0x10 src/sliding-text-layer.c.88.o
+                0x0000000000001b22                sliding_text_layer_set_next_text
+ .text.sliding_text_layer_set_font
+                0x0000000000001b32       0x1c src/sliding-text-layer.c.88.o
+                0x0000000000001b32                sliding_text_layer_set_font
+ .text.sliding_text_layer_set_text_color
+                0x0000000000001b4e       0x1c src/sliding-text-layer.c.88.o
+                0x0000000000001b4e                sliding_text_layer_set_text_color
+ .text.sliding_text_layer_set_text_alignment
+                0x0000000000001b6a       0x10 src/sliding-text-layer.c.88.o
+                0x0000000000001b6a                sliding_text_layer_set_text_alignment
+ *fill*         0x0000000000001b7a        0x2 00
+ .text.accel_tap_service_subscribe
+                0x0000000000001b7c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001b7c                accel_tap_service_subscribe
+ .text.accel_tap_service_unsubscribe
+                0x0000000000001b88        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001b88                accel_tap_service_unsubscribe
+ .text.animation_create
+                0x0000000000001b94        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001b94                animation_create
+ .text.animation_destroy
+                0x0000000000001ba0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ba0                animation_destroy
+ .text.animation_get_context
+                0x0000000000001bac        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001bac                animation_get_context
+ .text.animation_schedule
+                0x0000000000001bb8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001bb8                animation_schedule
+ .text.animation_set_curve
+                0x0000000000001bc4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001bc4                animation_set_curve
+ .text.animation_set_duration
+                0x0000000000001bd0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001bd0                animation_set_duration
+ .text.animation_set_handlers
+                0x0000000000001bdc        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001bdc                animation_set_handlers
+ .text.animation_set_implementation
+                0x0000000000001be8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001be8                animation_set_implementation
+ .text.app_event_loop
+                0x0000000000001bf4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001bf4                app_event_loop
+ .text.app_message_deregister_callbacks
+                0x0000000000001c00        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c00                app_message_deregister_callbacks
+ .text.app_message_open
+                0x0000000000001c0c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c0c                app_message_open
+ .text.bitmap_layer_create
+                0x0000000000001c18        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c18                bitmap_layer_create
+ .text.bitmap_layer_destroy
+                0x0000000000001c24        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c24                bitmap_layer_destroy
+ .text.bitmap_layer_get_layer
+                0x0000000000001c30        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c30                bitmap_layer_get_layer
+ .text.bitmap_layer_set_bitmap
+                0x0000000000001c3c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c3c                bitmap_layer_set_bitmap
+ .text.bitmap_layer_set_compositing_mode
+                0x0000000000001c48        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c48                bitmap_layer_set_compositing_mode
+ .text.clock_is_24h_style
+                0x0000000000001c54        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c54                clock_is_24h_style
+ .text.dict_find
+                0x0000000000001c60        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c60                dict_find
+ .text.dict_read_first
+                0x0000000000001c6c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c6c                dict_read_first
+ .text.dict_read_next
+                0x0000000000001c78        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c78                dict_read_next
+ .text.fonts_load_custom_font
+                0x0000000000001c84        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c84                fonts_load_custom_font
+ .text.fonts_unload_custom_font
+                0x0000000000001c90        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c90                fonts_unload_custom_font
+ .text.free     0x0000000000001c9c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001c9c                free
+ .text.gbitmap_create_with_resource
+                0x0000000000001ca8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ca8                gbitmap_create_with_resource
+ .text.gbitmap_destroy
+                0x0000000000001cb4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001cb4                gbitmap_destroy
+ .text.gpath_create
+                0x0000000000001cc0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001cc0                gpath_create
+ .text.gpath_destroy
+                0x0000000000001ccc        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ccc                gpath_destroy
+ .text.gpath_draw_outline
+                0x0000000000001cd8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001cd8                gpath_draw_outline
+ .text.graphics_context_set_fill_color
+                0x0000000000001ce4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ce4                graphics_context_set_fill_color
+ .text.graphics_context_set_stroke_color
+                0x0000000000001cf0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001cf0                graphics_context_set_stroke_color
+ .text.graphics_context_set_text_color
+                0x0000000000001cfc        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001cfc                graphics_context_set_text_color
+ .text.graphics_fill_circle
+                0x0000000000001d08        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d08                graphics_fill_circle
+ .text.layer_add_child
+                0x0000000000001d14        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d14                layer_add_child
+ .text.layer_create
+                0x0000000000001d20        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d20                layer_create
+ .text.layer_create_with_data
+                0x0000000000001d2c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d2c                layer_create_with_data
+ .text.layer_destroy
+                0x0000000000001d38        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d38                layer_destroy
+ .text.layer_get_bounds
+                0x0000000000001d44        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d44                layer_get_bounds
+ .text.layer_get_data
+                0x0000000000001d50        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d50                layer_get_data
+ .text.layer_mark_dirty
+                0x0000000000001d5c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d5c                layer_mark_dirty
+ .text.layer_set_update_proc
+                0x0000000000001d68        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d68                layer_set_update_proc
+ .text.localtime
+                0x0000000000001d74        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d74                localtime
+ .text.memcpy   0x0000000000001d80        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d80                memcpy
+ .text.memset   0x0000000000001d8c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d8c                memset
+ .text.rand     0x0000000000001d98        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001d98                rand
+ .text.resource_get_handle
+                0x0000000000001da4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001da4                resource_get_handle
+ .text.snprintf
+                0x0000000000001db0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001db0                snprintf
+ .text.strcmp   0x0000000000001dbc        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001dbc                strcmp
+ .text.strcpy   0x0000000000001dc8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001dc8                strcpy
+ .text.strftime
+                0x0000000000001dd4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001dd4                strftime
+ .text.text_layer_create
+                0x0000000000001de0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001de0                text_layer_create
+ .text.text_layer_destroy
+                0x0000000000001dec        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001dec                text_layer_destroy
+ .text.text_layer_get_layer
+                0x0000000000001df8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001df8                text_layer_get_layer
+ .text.text_layer_set_background_color
+                0x0000000000001e04        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e04                text_layer_set_background_color
+ .text.text_layer_set_font
+                0x0000000000001e10        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e10                text_layer_set_font
+ .text.text_layer_set_text
+                0x0000000000001e1c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e1c                text_layer_set_text
+ .text.text_layer_set_text_alignment
+                0x0000000000001e28        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e28                text_layer_set_text_alignment
+ .text.text_layer_set_text_color
+                0x0000000000001e34        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e34                text_layer_set_text_color
+ .text.tick_timer_service_subscribe
+                0x0000000000001e40        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e40                tick_timer_service_subscribe
+ .text.time     0x0000000000001e4c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e4c                time
+ .text.window_create
+                0x0000000000001e58        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e58                window_create
+ .text.window_destroy
+                0x0000000000001e64        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e64                window_destroy
+ .text.window_get_root_layer
+                0x0000000000001e70        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e70                window_get_root_layer
+ .text.window_set_background_color
+                0x0000000000001e7c        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e7c                window_set_background_color
+ .text.window_set_window_handlers
+                0x0000000000001e88        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e88                window_set_window_handlers
+ .text.window_stack_push
+                0x0000000000001e94        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001e94                window_stack_push
+ .text.app_message_outbox_begin
+                0x0000000000001ea0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ea0                app_message_outbox_begin
+ .text.app_message_outbox_send
+                0x0000000000001eac        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001eac                app_message_outbox_send
+ .text.app_message_register_inbox_dropped
+                0x0000000000001eb8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001eb8                app_message_register_inbox_dropped
+ .text.app_message_register_inbox_received
+                0x0000000000001ec4        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ec4                app_message_register_inbox_received
+ .text.app_message_register_outbox_failed
+                0x0000000000001ed0        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ed0                app_message_register_outbox_failed
+ .text.graphics_draw_text
+                0x0000000000001edc        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001edc                graphics_draw_text
+ .text.gpath_draw_filled
+                0x0000000000001ee8        0xc /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+                0x0000000000001ee8                gpath_draw_filled
+ .text.strspn   0x0000000000001ef4       0x24 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+                0x0000000000001ef4                strspn
+ *(.rodata)
+ *(.rodata*)
+ .rodata.str1.1
+                0x0000000000001f18       0x97 src/main.c.88.o
+                                         0x9a (size before relaxing)
+
+.glue_7         0x0000000000001fb0        0x0
+ .glue_7        0x0000000000000000        0x0 linker stubs
+
+.glue_7t        0x0000000000001fb0        0x0
+ .glue_7t       0x0000000000000000        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000001fb0        0x0
+ .vfp11_veneer  0x0000000000000000        0x0 linker stubs
+
+.v4_bx          0x0000000000001fb0        0x0
+ .v4_bx         0x0000000000000000        0x0 linker stubs
+
+.iplt           0x0000000000001fb0        0x0
+ .iplt          0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+
+.rel.dyn        0x0000000000001fb0        0x0
+ .rel.iplt      0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .rel.got       0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+
+.data           0x0000000000001fb0       0x94
+ *(.data)
+ .data          0x0000000000001fb0        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .data          0x0000000000001fb0        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+                0x0000000000001fb0                __dso_handle
+ .data          0x0000000000001fb4        0x0 src/main.c.88.o
+ .data          0x0000000000001fb4       0x10 src/sliding-text-layer.c.88.o
+ .data          0x0000000000001fc4        0x0 aplite/appinfo.auto.c.88.o
+ .data          0x0000000000001fc4        0x0 /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .data          0x0000000000001fc4        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+ .data          0x0000000000001fc4        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+ .data          0x0000000000001fc4        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+ *(.data.*)
+ .data.showing_loading_screen
+                0x0000000000001fc4        0x4 src/main.c.88.o
+                0x0000000000001fc4                showing_loading_screen
+ .data.logo     0x0000000000001fc8       0x7c src/main.c.88.o
+                0x0000000000001fc8                logo
+
+.igot.plt       0x0000000000002044        0x0
+ .igot.plt      0x0000000000000000        0x0 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+
+.got            0x0000000000002044        0x4
+ .got           0x0000000000002044        0x4 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+
+.got.plt        0x0000000000002048        0xc
+ .got.plt       0x0000000000002048        0xc /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+                0x0000000000002048                _GLOBAL_OFFSET_TABLE_
+
+.bss            0x0000000000002054      0x1f8
+ *(.bss)
+ *(.bss.*)
+ .bss.away_score
+                0x0000000000002054       0x19 src/main.c.88.o
+ *fill*         0x000000000000206d        0x3 00
+ .bss.s_font_capital_20
+                0x0000000000002070        0x4 src/main.c.88.o
+ .bss.s_away_data_layer
+                0x0000000000002074        0x4 src/main.c.88.o
+ .bss.s_buffer.6872
+                0x0000000000002078        0x8 src/main.c.88.o
+ .bss.s_home_data_layer
+                0x0000000000002080        0x4 src/main.c.88.o
+ .bss.s_team_logo
+                0x0000000000002084        0x4 src/main.c.88.o
+ .bss.s_font_mlb_18
+                0x0000000000002088        0x4 src/main.c.88.o
+ .bss.currentGameData
+                0x000000000000208c       0x98 src/main.c.88.o
+ .bss.home_score
+                0x0000000000002124       0x19 src/main.c.88.o
+ *fill*         0x000000000000213d        0x3 00
+ .bss.update_number
+                0x0000000000002140        0x4 src/main.c.88.o
+                0x0000000000002140                update_number
+ .bss.s_buffer_prev
+                0x0000000000002144        0x8 src/main.c.88.o
+ .bss.s_time_layer
+                0x000000000000214c        0x4 src/main.c.88.o
+ .bss.s_font_mlb_40
+                0x0000000000002150        0x4 src/main.c.88.o
+ .bss.inning    0x0000000000002154        0xf src/main.c.88.o
+ *fill*         0x0000000000002163        0x1 00
+ .bss.logo_uodate_i
+                0x0000000000002164        0x4 src/main.c.88.o
+ .bss.previousGameData
+                0x0000000000002168       0x98 src/main.c.88.o
+ .bss.s_loading_layer
+                0x0000000000002200        0x4 src/main.c.88.o
+ .bss.s_font_phillies_22
+                0x0000000000002204        0x4 src/main.c.88.o
+ .bss.s_away_team_layer
+                0x0000000000002208        0x4 src/main.c.88.o
+ .bss.showing_no_game
+                0x000000000000220c        0x4 src/main.c.88.o
+                0x000000000000220c                showing_no_game
+ .bss.s_home_team_layer
+                0x0000000000002210        0x4 src/main.c.88.o
+ .bss.s_inning_state_layer
+                0x0000000000002214        0x4 src/main.c.88.o
+ .bss.s_team_logo_layer
+                0x0000000000002218        0x4 src/main.c.88.o
+ .bss.s_game_time_layer
+                0x000000000000221c        0x4 src/main.c.88.o
+ .bss.slide_number
+                0x0000000000002220        0x4 src/main.c.88.o
+                0x0000000000002220                slide_number
+ .bss.s_bases_layer
+                0x0000000000002224        0x4 src/main.c.88.o
+ .bss.userSettings
+                0x0000000000002228       0x18 src/main.c.88.o
+ .bss.s_inning_layer
+                0x0000000000002240        0x4 src/main.c.88.o
+ .bss.s_bso_layer
+                0x0000000000002244        0x4 src/main.c.88.o
+ COMMON         0x0000000000002248        0x4 src/main.c.88.o
+                0x0000000000002248                window
+
+DISCARD
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+ *(.eh_frame)
+OUTPUT(/Users/christopherschlitt/Desktop/chriss/Pebble_MLB/build/aplite/pebble-app.elf elf32-littlearm)
+
+.ARM.attributes
+                0x0000000000000000       0x27
+ .ARM.attributes
+                0x0000000000000000       0x1b /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .ARM.attributes
+                0x000000000000001b       0x2b /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+ .ARM.attributes
+                0x0000000000000046       0x33 src/main.c.88.o
+ .ARM.attributes
+                0x0000000000000079       0x33 src/sliding-text-layer.c.88.o
+ .ARM.attributes
+                0x00000000000000ac       0x33 aplite/appinfo.auto.c.88.o
+ .ARM.attributes
+                0x00000000000000df       0x21 /Users/christopherschlitt/pebble-dev/PebbleSDK-3.0/Pebble/aplite/lib/libpebble.a(tmpepMa8Kpebble.o)
+ .ARM.attributes
+                0x0000000000000100       0x2b /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+ .ARM.attributes
+                0x000000000000012b       0x2b /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+ .ARM.attributes
+                0x0000000000000156       0x1b /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.comment        0x0000000000000000       0x4e
+ .comment       0x0000000000000000       0x4e /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtbegin.o
+                                         0x4f (size before relaxing)
+ .comment       0x0000000000000000       0x4f src/main.c.88.o
+ .comment       0x0000000000000000       0x4f src/sliding-text-layer.c.88.o
+ .comment       0x0000000000000000       0x4f aplite/appinfo.auto.c.88.o
+ .comment       0x0000000000000000       0x4f /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-strspn.o)
+ .comment       0x0000000000000000       0x4f /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtend.o
+
+.debug_line     0x0000000000000000      0xd51
+ .debug_line    0x0000000000000000       0x71 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .debug_line    0x0000000000000071      0x756 src/main.c.88.o
+ .debug_line    0x00000000000007c7      0x3d8 src/sliding-text-layer.c.88.o
+ .debug_line    0x0000000000000b9f      0x13d aplite/appinfo.auto.c.88.o
+ .debug_line    0x0000000000000cdc       0x75 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.debug_info     0x0000000000000000     0x260c
+ .debug_info    0x0000000000000000       0x97 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .debug_info    0x0000000000000097     0x14f1 src/main.c.88.o
+ .debug_info    0x0000000000001588      0xc00 src/sliding-text-layer.c.88.o
+ .debug_info    0x0000000000002188      0x3ed aplite/appinfo.auto.c.88.o
+ .debug_info    0x0000000000002575       0x97 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.debug_abbrev   0x0000000000000000      0x6e4
+ .debug_abbrev  0x0000000000000000       0x12 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .debug_abbrev  0x0000000000000012      0x3f3 src/main.c.88.o
+ .debug_abbrev  0x0000000000000405      0x22b src/sliding-text-layer.c.88.o
+ .debug_abbrev  0x0000000000000630       0xa2 aplite/appinfo.auto.c.88.o
+ .debug_abbrev  0x00000000000006d2       0x12 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.debug_aranges  0x0000000000000000      0x1f8
+ .debug_aranges
+                0x0000000000000000       0x28 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .debug_aranges
+                0x0000000000000028       0xd8 src/main.c.88.o
+ .debug_aranges
+                0x0000000000000100       0xd0 src/sliding-text-layer.c.88.o
+ .debug_aranges
+                0x00000000000001d0       0x28 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.debug_ranges   0x0000000000000000      0x300
+ .debug_ranges  0x0000000000000000       0x20 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crti.o
+ .debug_ranges  0x0000000000000020      0x200 src/main.c.88.o
+ .debug_ranges  0x0000000000000220       0xc0 src/sliding-text-layer.c.88.o
+ .debug_ranges  0x00000000000002e0       0x20 /Users/christopherschlitt/pebble-dev/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.6.3/thumb2/crtn.o
+
+.debug_loc      0x0000000000000000     0x119f
+ .debug_loc     0x0000000000000000      0x955 src/main.c.88.o
+ .debug_loc     0x0000000000000955      0x84a src/sliding-text-layer.c.88.o
+
+.debug_str      0x0000000000000000     0x17ec
+ .debug_str     0x0000000000000000     0x10c2 src/main.c.88.o
+                                       0x1187 (size before relaxing)
+ .debug_str     0x00000000000010c2      0x5cc src/sliding-text-layer.c.88.o
+                                        0x7fc (size before relaxing)
+ .debug_str     0x000000000000168e      0x15e aplite/appinfo.auto.c.88.o
+                                        0x5d8 (size before relaxing)
+
+.debug_frame    0x0000000000000000      0x4f8
+ .debug_frame   0x0000000000000000      0x298 src/main.c.88.o
+ .debug_frame   0x0000000000000298      0x260 src/sliding-text-layer.c.88.o

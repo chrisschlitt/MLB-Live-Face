@@ -5,7 +5,6 @@ var shakeTime = 5;
 var refreshTime = [3600, 60];
 var primaryColor = "FFFFFF";
 var secondaryColor = "FFFFFF";
-// var backgroundColor = "AA0000";
 var backgroundColor = "000000";
 /*
 * Future Settings:

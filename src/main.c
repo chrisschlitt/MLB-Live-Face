@@ -418,7 +418,6 @@ static void route_graphic_updates(){
       newGame();
     }
   } else if (currentGameData.status == 0 && previousGameData.status != 0){
-  // } else if (currentGameData.status == 0){
     // New Game Fallback
     newGame();
   } else if (currentGameData.status == 2){
@@ -771,11 +770,6 @@ static void window_load(Window *window) {
   #ifdef PBL_ROUND
     s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
   #else
-    #ifdef PBL_COLOR
-      // s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
-    #else
-      // s_team_logo_layer = bitmap_layer_create(GRect(0, 0, 144, 108));
-    #endif
     s_team_logo_layer = bitmap_layer_create(GRect(-18, -6, bounds.size.w + 18, 119));
   #endif
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
@@ -974,19 +968,16 @@ void init(void) {
   tick_timer_service_subscribe(SECOND_UNIT, tick_handler);
   accel_tap_service_subscribe(accel_tap_handler);
   
-	// Register AppMessage handlers
-	app_message_register_inbox_received(in_received_handler); 
-	app_message_register_inbox_dropped(in_dropped_handler); 
-	app_message_register_outbox_failed(out_failed_handler);
+    // Register AppMessage handlers
+    app_message_register_inbox_received(in_received_handler); 
+    app_message_register_inbox_dropped(in_dropped_handler); 
+    app_message_register_outbox_failed(out_failed_handler);
 	
-  /*
   #ifdef PBL_COLOR
 	  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
-	#else
+  #else
     app_message_open(300, 50);
-	#endif
-  */
-  app_message_open(300, 50);
+  #endif
 }
 
 void deinit(void) {
