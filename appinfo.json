@@ -33,7 +33,7 @@
         "configurable"
     ],
     "companyName": "Chris Schlitt",
-    "enableMultiJS": true,
+    "enableMultiJS": false,
     "longName": "MLB Live Face",
     "projectType": "native",
     "resources": {
@@ -41,205 +41,171 @@
             {
                 "file": "images/was.png",
                 "name": "NATIONALS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/tor.png",
                 "name": "BLUEJAYS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/tex.png",
                 "name": "RANGERS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/tb.png",
                 "name": "RAYS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/stl.png",
                 "name": "CARDINALS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/sf.png",
                 "name": "GIANTS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/sea.png",
                 "name": "MARINERS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/sd.png",
                 "name": "PADRES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/pit.png",
                 "name": "PIRATES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
-                "file": "images/phi.bmp",
+                "file": "images/phi.png",
                 "name": "PHILLIES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/oak.png",
                 "name": "ATHLETICS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/nyy.png",
                 "name": "YANKEES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/nym.png",
                 "name": "METS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/min.png",
                 "name": "TWINS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/mil.png",
                 "name": "BREWERS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/mia.png",
                 "name": "MARLINS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/lad.png",
                 "name": "DODGERS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/laa.png",
                 "name": "ANGELS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/kc.png",
                 "name": "ROYALS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/hou.png",
                 "name": "ASTROS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/det.png",
                 "name": "TIGERS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/col.png",
                 "name": "ROCKIES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/cle.png",
                 "name": "INDIANS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/cin.png",
                 "name": "REDS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/chw.png",
                 "name": "WHITESOX",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/chc.png",
                 "name": "CUBS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/bos.png",
                 "name": "REDSOX",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/bal.png",
                 "name": "ORIOLES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/atl.png",
                 "name": "BRAVES",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "images/ari.png",
                 "name": "DIAMONDBACKS",
-                "targetPlatforms": null,
-                "type": "bitmap"
+                "type": "png"
             },
             {
                 "file": "fonts/PHILLIES_FONT.ttf",
                 "name": "FONT_PHILLIES_22",
-                "targetPlatforms": null,
                 "type": "font"
             },
             {
                 "file": "fonts/MLB_FONT.ttf",
                 "name": "FONT_MLB_40",
-                "targetPlatforms": null,
                 "type": "font"
             },
             {
                 "file": "fonts/MLB_FONT.ttf",
                 "name": "FONT_MLB_18",
-                "targetPlatforms": null,
                 "type": "font"
             },
             {
                 "file": "fonts/CAPITAL_FONT.ttf",
                 "name": "FONT_CAPITAL_20",
-                "targetPlatforms": null,
                 "type": "font"
             }
         ]
@@ -247,12 +213,13 @@
     "sdkVersion": "3",
     "shortName": "MLB Live Face",
     "targetPlatforms": [
+        "aplite",
         "basalt",
         "chalk"
     ],
-    "uuid": "58b2260a-42ab-4cc1-8767-743ed9733d75",
-    "versionLabel": "2.0",
+    "uuid": "3ae16b33-47d1-4479-8f41-b5face25f3ca",
+    "versionLabel": "3.0",
     "watchapp": {
-        "watchface": true
+        "watchface": false
     }
 }

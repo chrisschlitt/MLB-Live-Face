@@ -87,9 +87,12 @@ unsigned int HexStringToUInt(char const* hexstring)
     }
     return result;  
 }
-// Debugging purposes
-static void log_memory(int code){
-  APP_LOG(APP_LOG_LEVEL_INFO, "%d : Memory Used = %d Free = %d", code, heap_bytes_used(), heap_bytes_free());
+GColor GColorFromStringBW(char* color){
+  if(strcmp(color, "FFFFFF") == 0){
+    return GColorWhite;
+  } else {
+    return GColorBlack;
+  }
 }
 
 // Game Data data type
@@ -137,9 +140,15 @@ static void initialize_settings(){
   userSettings.shake_time = 5;
   userSettings.refresh_time_off = 3600;
   userSettings.refresh_time_on = 180;
-  userSettings.primary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
-  userSettings.secondary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
-  userSettings.background_color = GColorFromHEX(HexStringToUInt("000000"));
+  #ifdef PBL_COLOR
+    userSettings.primary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
+    userSettings.secondary_color = GColorFromHEX(HexStringToUInt("FFFFFF"));
+    userSettings.background_color = GColorFromHEX(HexStringToUInt("000000"));
+  #else
+    userSettings.primary_color = GColorWhite;
+    userSettings.secondary_color = GColorWhite;
+    userSettings.background_color = GColorBlack;
+  #endif
 }
 
 // Global Settings
@@ -409,7 +418,6 @@ static void route_graphic_updates(){
       newGame();
     }
   } else if (currentGameData.status == 0 && previousGameData.status != 0){
-  // } else if (currentGameData.status == 0){
     // New Game Fallback
     newGame();
   } else if (currentGameData.status == 2){
@@ -473,13 +481,25 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
           userSettings.refresh_time_on = (int)t->value->int32;
           break;
         case PREF_PRIMARY_COLOR:
-          userSettings.primary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #ifdef PBL_COLOR
+            userSettings.primary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #else
+            userSettings.primary_color = GColorFromStringBW(t->value->cstring);
+          #endif
           break;
         case PREF_SECONDARY_COLOR:
-          userSettings.secondary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #ifdef PBL_COLOR
+            userSettings.secondary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #else
+            userSettings.secondary_color = GColorFromStringBW(t->value->cstring);
+          #endif
           break;
         case PREF_BACKGROUND_COLOR:
-          userSettings.background_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #ifdef PBL_COLOR
+            userSettings.background_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
+          #else
+            userSettings.background_color = GColorFromStringBW(t->value->cstring);
+          #endif
           break;
         default:
           break;
@@ -606,7 +626,9 @@ static void bso_update_proc(Layer *layer, GContext *ctx) {
     GRect bounds = layer_get_bounds(layer);
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.primary_color);
+		#ifdef PBL_COLOR
     graphics_context_set_stroke_width(ctx, 4);
+		#endif
     #ifdef PBL_ROUND
       if(currentGameData.outs == 2){
         graphics_fill_circle(ctx, GPoint(((bounds.size.w) / 2) + 11, (bounds.size.h - 15)), 6);
@@ -687,7 +709,9 @@ static void bases_update_proc(Layer *layer, GContext *ctx) {
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.secondary_color);
     graphics_context_set_stroke_color(ctx, userSettings.secondary_color);
+    #ifdef PBL_COLOR
     graphics_context_set_stroke_width(ctx, 3);
+		#endif
     GPoint first_points[4] = {
       { .x = (bounds.size.w - 20), .y = bounds.size.h / 2 },
       { .x = bounds.size.w, .y = (bounds.size.h / 2) + 20 },
@@ -746,7 +770,7 @@ static void window_load(Window *window) {
   #ifdef PBL_ROUND
     s_team_logo_layer = bitmap_layer_create(GRect(0, 0, bounds.size.w, 113));
   #else
-    s_team_logo_layer = bitmap_layer_create(GRect(-22, -6, bounds.size.w + 22, 119));
+    s_team_logo_layer = bitmap_layer_create(GRect(-18, -6, bounds.size.w + 18, 119));
   #endif
   bitmap_layer_set_compositing_mode(s_team_logo_layer, GCompOpSet);
   
@@ -944,13 +968,16 @@ void init(void) {
   tick_timer_service_subscribe(SECOND_UNIT, tick_handler);
   accel_tap_service_subscribe(accel_tap_handler);
   
-	// Register AppMessage handlers
-	app_message_register_inbox_received(in_received_handler); 
-	app_message_register_inbox_dropped(in_dropped_handler); 
-	app_message_register_outbox_failed(out_failed_handler);
-		
-	app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+    // Register AppMessage handlers
+    app_message_register_inbox_received(in_received_handler); 
+    app_message_register_inbox_dropped(in_dropped_handler); 
+    app_message_register_outbox_failed(out_failed_handler);
 	
+  #ifdef PBL_COLOR
+	  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+  #else
+    app_message_open(300, 50);
+  #endif
 }
 
 void deinit(void) {
@@ -963,4 +990,4 @@ int main( void ) {
 	init();
 	app_event_loop();
 	deinit();
-}
+	}
