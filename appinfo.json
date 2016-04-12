@@ -34,7 +34,7 @@
         "configurable"
     ],
     "companyName": "Chris Schlitt",
-    "enableMultiJS": false,
+    "enableMultiJS": true,
     "longName": "MLB Live Face",
     "projectType": "native",
     "resources": {
