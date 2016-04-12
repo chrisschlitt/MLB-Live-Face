@@ -3,6 +3,7 @@ var favoriteTeam = 19;
 var shakeEnabled = 1;
 var shakeTime = 5;
 var refreshTime = [3600, 60];
+var basesDisplay = 1;
 var primaryColor = "FFFFFF";
 var secondaryColor = "FFFFFF";
 var backgroundColor = "000000";
@@ -257,7 +258,7 @@ function newGameDataRequest(){
 
 // Function to append settings to data
 function sendSettings(){
-  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor};
+  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': parseInt(basesDisplay)};
   sendDataToWatch(dictionary);
 }
 
@@ -295,6 +296,10 @@ function loadSettings(){
   if(backgroundColor === null){
     backgroundColor = "000000";
   }
+  basesDisplay = localStorage.getItem(9);
+  if(basesDisplay === null){
+    basesDisplay = 1;
+  }
 }
 
 // Function to store settings
@@ -331,6 +336,10 @@ function storeSettings(configuration){
     backgroundColor = configuration.background_color;
     localStorage.setItem(8, backgroundColor);
   }
+  if (configuration.hasOwnProperty('bases_display') === true) {
+    basesDisplay = configuration.bases_display;
+    localStorage.setItem(9, basesDisplay);
+  }
   sendSettings();
   newGameDataRequest();
 }
@@ -349,7 +358,13 @@ Pebble.addEventListener("ready", function(e) {
 												
 // Called when incoming message from the Pebble is received
 Pebble.addEventListener("appmessage", function(e) {
-  newGameDataRequest();
+  var type = e.payload.type;
+  if(type == 1){
+    newGameDataRequest();
+  } else if(type == 2) {
+    loadSettings();
+    sendSettings();
+  }
 });
 
 Pebble.addEventListener('webviewclosed', function(e) {
@@ -361,7 +376,7 @@ Pebble.addEventListener('webviewclosed', function(e) {
 Pebble.addEventListener('showConfiguration', function() {
   loadSettings();
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.phl.chs.network/mlb/config/index.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&platform=' + watch.platform;
+  var url = 'http://pebble.phl.chs.network/mlb/config/config-3.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&bases-display=' + basesDisplay + '&platform=' + watch.platform;
   Pebble.openURL(url);
 });
 

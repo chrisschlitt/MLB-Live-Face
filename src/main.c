@@ -57,6 +57,7 @@ static char away_score[25];
 static char s_buffer_prev[8];
 uint32_t logo[31] = {RESOURCE_ID_PHILLIES, RESOURCE_ID_ANGELS, RESOURCE_ID_ASTROS, RESOURCE_ID_ATHLETICS, RESOURCE_ID_BLUEJAYS, RESOURCE_ID_BRAVES, RESOURCE_ID_BREWERS, RESOURCE_ID_CARDINALS, RESOURCE_ID_CUBS, RESOURCE_ID_DIAMONDBACKS, RESOURCE_ID_DODGERS, RESOURCE_ID_GIANTS, RESOURCE_ID_INDIANS, RESOURCE_ID_MARINERS, RESOURCE_ID_MARLINS, RESOURCE_ID_METS, RESOURCE_ID_NATIONALS, RESOURCE_ID_ORIOLES, RESOURCE_ID_PADRES, RESOURCE_ID_PHILLIES, RESOURCE_ID_PIRATES, RESOURCE_ID_RANGERS, RESOURCE_ID_RAYS, RESOURCE_ID_REDSOX, RESOURCE_ID_REDS, RESOURCE_ID_ROCKIES, RESOURCE_ID_ROYALS, RESOURCE_ID_TIGERS, RESOURCE_ID_TWINS, RESOURCE_ID_WHITESOX, RESOURCE_ID_YANKEES};
 static int logo_uodate_i = 0;
+int color_update = 0;
 
 // Color Resources
 #define ASCII_0_VALU 48
@@ -125,6 +126,7 @@ typedef struct Settings {
   int shake_time;
   int refresh_time_off;
   int refresh_time_on;
+  int bases_display;
   GColor primary_color;
   GColor secondary_color;
   GColor background_color;
@@ -138,6 +140,7 @@ static void initialize_settings(){
   userSettings.favorite_team = 19;
   userSettings.shake_enabeled = 1;
   userSettings.shake_time = 5;
+  userSettings.bases_display = 1;
   userSettings.refresh_time_off = 3600;
   userSettings.refresh_time_on = 180;
   #ifdef PBL_COLOR
@@ -186,7 +189,8 @@ enum {
   PREF_REFRESH_TIME_ON = 24,
   PREF_PRIMARY_COLOR = 25,
   PREF_SECONDARY_COLOR = 26,
-  PREF_BACKGROUND_COLOR = 27
+  PREF_BACKGROUND_COLOR = 27,
+  PREF_BASES_DISPLAY = 28
 };
 
 // Key values for graphic instructions Dictionary
@@ -244,6 +248,14 @@ static void change_teams(){
 static void request_update(){
   DictionaryIterator *iter;
   app_message_outbox_begin(&iter);
+  dict_write_uint32(iter, TYPE, 1);
+  app_message_outbox_send();
+}
+
+static void request_color_update(){
+  DictionaryIterator *iter;
+  app_message_outbox_begin(&iter);
+  dict_write_uint32(iter, TYPE, 2);
   app_message_outbox_send();
 }
 
@@ -274,7 +286,15 @@ static void startGame(){
   sliding_text_layer_animate_down(s_home_data_layer);
   // Animate Inning
   sliding_text_layer_set_font(s_inning_layer, s_font_phillies_22);
-  snprintf(inning, sizeof(inning), "      %d", currentGameData.inning);
+  #ifdef PBL_RECT 
+  if(userSettings.bases_display == 1) {
+    #endif
+    snprintf(inning, sizeof(inning), "      %d", currentGameData.inning);
+    #ifdef PBL_RECT 
+  } else if(userSettings.bases_display == 2) {
+    snprintf(inning, sizeof(inning), "%d", currentGameData.inning);
+  }
+  #endif
   sliding_text_layer_set_next_text(s_inning_layer, inning);
   sliding_text_layer_animate_down(s_inning_layer);
   // Animate Game Time
@@ -345,7 +365,15 @@ static void updateGame(int *instructions){
     sliding_text_layer_animate_down(s_away_data_layer);
   }
   if (instructions[3] == 1){
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     snprintf(inning, sizeof(inning), "      %d", currentGameData.inning);
+    #ifdef PBL_RECT 
+      } else if(userSettings.bases_display == 2) {
+        snprintf(inning, sizeof(inning), "%d", currentGameData.inning);
+      }
+    #endif
     sliding_text_layer_set_next_text(s_inning_layer, inning);
     sliding_text_layer_animate_down(s_inning_layer);
   }
@@ -373,6 +401,7 @@ static void showNoGame(){
   }
 }
 static void change_colors(){
+  color_update = 1;
   // Set Primary Color
   sliding_text_layer_set_text_color(s_home_team_layer, userSettings.primary_color);
   sliding_text_layer_set_text_color(s_away_team_layer, userSettings.primary_color);
@@ -479,6 +508,13 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
           break;
         case PREF_REFRESH_TIME_ON:
           userSettings.refresh_time_on = (int)t->value->int32;
+          break;
+        case PREF_BASES_DISPLAY:
+          userSettings.bases_display = (int)t->value->int32;
+          if(currentGameData.status == 2){
+            int instructions[6] = { 0, 0, 0, 1, 0, 0 };
+            updateGame(instructions);
+          }
           break;
         case PREF_PRIMARY_COLOR:
           #ifdef PBL_COLOR
@@ -624,7 +660,9 @@ static void out_failed_handler(DictionaryIterator *failed, AppMessageResult reas
 static void bso_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
-    // Custom drawing happens here!
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     graphics_context_set_fill_color(ctx, userSettings.primary_color);
 		#ifdef PBL_COLOR
     graphics_context_set_stroke_width(ctx, 4);
@@ -652,12 +690,28 @@ static void bso_update_proc(Layer *layer, GContext *ctx) {
         }
       }
     #endif
+    #ifdef PBL_RECT 
+      } else {
+        graphics_context_set_fill_color(ctx, userSettings.primary_color);
+        if(currentGameData.outs > 0){
+          graphics_fill_circle(ctx, GPoint(116, 149), 2);
+        }
+        if(currentGameData.outs > 1){
+          graphics_fill_circle(ctx, GPoint(124, 149), 2);
+        }
+        if((strcmp(currentGameData.inning_half, "Middle") == 0) || (strcmp(currentGameData.inning_half, "End") == 0) || (currentGameData.outs > 2)){
+          graphics_fill_circle(ctx, GPoint(120, 154), 2);
+        }
+      }
+    #endif
   }
 }
 static void inning_state_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
-    // Custom drawing happens here!
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     if ((strcmp(currentGameData.inning_half, "Top") == 0) || (strcmp(currentGameData.inning_half, "Middle") == 0)) {
       #ifdef PBL_ROUND
         GPoint inning_up_arrow[4] = {
@@ -696,16 +750,45 @@ static void inning_state_update_proc(Layer *layer, GContext *ctx) {
         };
       #endif
       GPathInfo inning_down_arrowinfo = { .num_points = 4, .points = inning_down_arrow };
-      GPath *inning_down_arrow_path = gpath_create(&inning_down_arrowinfo);
+      GPath *inning_down_arrow_path = gpath_create(&inning_down_arrowinfo);\
       graphics_context_set_fill_color(ctx, userSettings.primary_color);
       gpath_draw_filled(ctx, inning_down_arrow_path);
       gpath_destroy(inning_down_arrow_path);
     }
+    #ifdef PBL_RECT 
+      } else {
+        graphics_context_set_fill_color(ctx, userSettings.primary_color);
+        if ((strcmp(currentGameData.inning_half, "Top") == 0) || (strcmp(currentGameData.inning_half, "Middle") == 0)) {
+          graphics_fill_circle(ctx, GPoint(88, 125), 3);
+         } else if ((strcmp(currentGameData.inning_half, "Bottom") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)) {
+          graphics_fill_circle(ctx, GPoint(88, 155), 3);
+        }
+      }
+    #endif
   }
 }
+
+#ifdef PBL_RECT
+static void bases_legacy_helper(Layer *layer, GContext *ctx, GPath *path, int filled){
+  // Translate by (5, 5):
+  gpath_move_to(path, GPoint(5, 0));
+  graphics_context_set_fill_color(ctx, userSettings.primary_color);
+  graphics_context_set_stroke_color(ctx, userSettings.primary_color);
+  if (filled == 1) {
+    gpath_draw_filled(ctx, path);
+  } else {
+    gpath_draw_outline(ctx, path);
+  }
+  gpath_destroy(path);
+}
+#endif
+
 static void bases_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.secondary_color);
     graphics_context_set_stroke_color(ctx, userSettings.secondary_color);
@@ -756,6 +839,40 @@ static void bases_update_proc(Layer *layer, GContext *ctx) {
       gpath_draw_outline(ctx, third_path);
     }
     gpath_destroy(third_path);
+    #ifdef PBL_RECT 
+      } else {
+        static GPoint first_points[5] = {
+          { .x = 127, .y = 132 },
+          { .x = 137, .y = 142 },
+          { .x = 127, .y = 152 },
+          { .x = 117, .y = 142 },
+          { .x = 127, .y = 132 }
+        };
+        GPathInfo first_pathinfo = { .num_points = 5, .points = first_points };
+        GPath *first_path = gpath_create(&first_pathinfo);
+        bases_legacy_helper(layer, ctx, first_path, currentGameData.first);
+        static GPoint second_points[5] = {
+          { .x = 115, .y = 120 },
+          { .x = 125, .y = 130 },
+          { .x = 115, .y = 140 },
+          { .x = 105, .y = 130 },
+          { .x = 115, .y = 120 }
+        };
+        GPathInfo second_pathinfo = { .num_points = 5, .points = second_points };
+        GPath *second_path = gpath_create(&second_pathinfo);
+        bases_legacy_helper(layer, ctx, second_path, currentGameData.second);
+        static GPoint third_points[5] = {
+          { .x = 103, .y = 132 },
+          { .x = 113, .y = 142 },
+          { .x = 103, .y = 152 },
+          { .x = 93, .y = 142 },
+          { .x = 103, .y = 132 }
+        };
+        GPathInfo third_pathinfo = { .num_points = 5, .points = third_points };
+        GPath *third_path = gpath_create(&third_pathinfo);
+        bases_legacy_helper(layer, ctx, third_path, currentGameData.third);
+      }
+    #endif
   }
 }
 
@@ -924,6 +1041,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   }
   
   update_number++;
+  
   if (currentGameData.status > 0 && currentGameData.status < 3){
     if (update_number >= userSettings.refresh_time_on){
       // Update
@@ -936,6 +1054,10 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
       request_update();
       update_number = 0;
     }
+  }
+  // Fallback to update colors on aplite
+  if(color_update == 0){
+    request_color_update();
   }
 }
 
