@@ -211,7 +211,8 @@ function processGameData(gameData){
 // Function to get MLB data from personal server
 function getGameData(offset){
   var method = 'GET';
-  var url = 'http://pebble.phl.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset;
+  var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
+  var url = 'http://pebble.phl.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=3.0';
   // Create the request
   var request = new XMLHttpRequest();
   
@@ -258,7 +259,7 @@ function newGameDataRequest(){
 
 // Function to append settings to data
 function sendSettings(){
-  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': parseInt(basesDisplay)};
+  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':parseInt(shakeEnabled), 'PREF_SHAKE_TIME':parseInt(shakeTime), 'PREF_REFRESH_TIME_OFF':parseInt(refreshTime[0]), 'PREF_REFRESH_TIME_ON': parseInt(refreshTime[1]), 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': parseInt(basesDisplay)};
   sendDataToWatch(dictionary);
 }
 
@@ -300,6 +301,7 @@ function loadSettings(){
   if(basesDisplay === null){
     basesDisplay = 1;
   }
+  sendSettings();
 }
 
 // Function to store settings
@@ -347,7 +349,6 @@ function storeSettings(configuration){
 // Fucntion to send initial settings/processes to watch and load data
 function initializeData(){
   loadSettings();
-  sendSettings();
   newGameDataRequest();
 }
 
@@ -358,7 +359,7 @@ Pebble.addEventListener("ready", function(e) {
 												
 // Called when incoming message from the Pebble is received
 Pebble.addEventListener("appmessage", function(e) {
-  var type = e.payload.type;
+  var type = parseInt(e.payload.TYPE);
   if(type == 1){
     newGameDataRequest();
   } else if(type == 2) {
