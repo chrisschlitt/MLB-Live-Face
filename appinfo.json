@@ -16,6 +16,7 @@
         "NUM_GAMES": 1,
         "OUTS": 19,
         "PREF_BACKGROUND_COLOR": 27,
+        "PREF_BASES_DISPLAY": 28,
         "PREF_FAVORITE_TEAM": 20,
         "PREF_PRIMARY_COLOR": 25,
         "PREF_REFRESH_TIME_OFF": 23,
@@ -195,12 +196,12 @@
             },
             {
                 "file": "fonts/MLB_FONT.ttf",
-                "name": "FONT_MLB_40",
+                "name": "FONT_MLB_18",
                 "type": "font"
             },
             {
                 "file": "fonts/MLB_FONT.ttf",
-                "name": "FONT_MLB_18",
+                "name": "FONT_MLB_40",
                 "type": "font"
             },
             {
@@ -220,6 +221,6 @@
     "uuid": "3ae16b33-47d1-4479-8f41-b5face25f3ca",
     "versionLabel": "3.0",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }

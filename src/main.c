@@ -33,6 +33,11 @@ THE SOFTWARE.
 #include <pebble.h>
 #include "sliding-text-layer.h"
 
+// Debugging purposes
+static void log_memory(int code){
+  APP_LOG(APP_LOG_LEVEL_INFO, "%d : Memory Used = %d Free = %d", code, heap_bytes_used(), heap_bytes_free());
+}
+
 Window *window;	
 static TextLayer *s_time_layer;	
 static SlidingTextLayer *s_home_team_layer;
@@ -125,6 +130,7 @@ typedef struct Settings {
   int shake_time;
   int refresh_time_off;
   int refresh_time_on;
+  int bases_display;
   GColor primary_color;
   GColor secondary_color;
   GColor background_color;
@@ -138,6 +144,7 @@ static void initialize_settings(){
   userSettings.favorite_team = 19;
   userSettings.shake_enabeled = 1;
   userSettings.shake_time = 5;
+  userSettings.bases_display = 1;
   userSettings.refresh_time_off = 3600;
   userSettings.refresh_time_on = 180;
   #ifdef PBL_COLOR
@@ -186,7 +193,8 @@ enum {
   PREF_REFRESH_TIME_ON = 24,
   PREF_PRIMARY_COLOR = 25,
   PREF_SECONDARY_COLOR = 26,
-  PREF_BACKGROUND_COLOR = 27
+  PREF_BACKGROUND_COLOR = 27,
+  PREF_BASES_DISPLAY = 28
 };
 
 // Key values for graphic instructions Dictionary
@@ -480,6 +488,9 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
         case PREF_REFRESH_TIME_ON:
           userSettings.refresh_time_on = (int)t->value->int32;
           break;
+        case PREF_BASES_DISPLAY:
+          userSettings.bases_display = (int)t->value->int32;
+          break;
         case PREF_PRIMARY_COLOR:
           #ifdef PBL_COLOR
             userSettings.primary_color = GColorFromHEX(HexStringToUInt(t->value->cstring));
@@ -706,6 +717,9 @@ static void inning_state_update_proc(Layer *layer, GContext *ctx) {
 static void bases_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
+    #ifdef PBL_BW
+      if(userSettings.bases_display == 1) {
+    #endif
     // Custom drawing happens here!
     graphics_context_set_fill_color(ctx, userSettings.secondary_color);
     graphics_context_set_stroke_color(ctx, userSettings.secondary_color);
@@ -756,6 +770,17 @@ static void bases_update_proc(Layer *layer, GContext *ctx) {
       gpath_draw_outline(ctx, third_path);
     }
     gpath_destroy(third_path);
+    #ifdef PBL_BW
+      } else {
+        static GPoint first_points[5] = {
+        { .x = 127, .y = 132 },
+        { .x = 137, .y = 142 },
+        { .x = 127, .y = 152 },
+        { .x = 117, .y = 142 },
+        { .x = 127, .y = 132 }
+      };
+      }
+    #endif
   }
 }
 
@@ -924,6 +949,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   }
   
   update_number++;
+  
   if (currentGameData.status > 0 && currentGameData.status < 3){
     if (update_number >= userSettings.refresh_time_on){
       // Update
