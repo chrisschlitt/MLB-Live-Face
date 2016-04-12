@@ -33,11 +33,6 @@ THE SOFTWARE.
 #include <pebble.h>
 #include "sliding-text-layer.h"
 
-// Debugging purposes
-static void log_memory(int code){
-  APP_LOG(APP_LOG_LEVEL_INFO, "%d : Memory Used = %d Free = %d", code, heap_bytes_used(), heap_bytes_free());
-}
-
 Window *window;	
 static TextLayer *s_time_layer;	
 static SlidingTextLayer *s_home_team_layer;
@@ -282,7 +277,15 @@ static void startGame(){
   sliding_text_layer_animate_down(s_home_data_layer);
   // Animate Inning
   sliding_text_layer_set_font(s_inning_layer, s_font_phillies_22);
-  snprintf(inning, sizeof(inning), "      %d", currentGameData.inning);
+  #ifdef PBL_RECT 
+  if(userSettings.bases_display == 1) {
+    #endif
+    snprintf(inning, sizeof(inning), "      %d", currentGameData.inning);
+    #ifdef PBL_RECT 
+  } else if(userSettings.bases_display == 2) {
+    snprintf(inning, sizeof(inning), "%d", currentGameData.inning);
+  }
+  #endif
   sliding_text_layer_set_next_text(s_inning_layer, inning);
   sliding_text_layer_animate_down(s_inning_layer);
   // Animate Game Time
@@ -353,7 +356,15 @@ static void updateGame(int *instructions){
     sliding_text_layer_animate_down(s_away_data_layer);
   }
   if (instructions[3] == 1){
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     snprintf(inning, sizeof(inning), "      %d", currentGameData.inning);
+    #ifdef PBL_RECT 
+      } else if(userSettings.bases_display == 2) {
+        snprintf(inning, sizeof(inning), "%d", currentGameData.inning);
+      }
+    #endif
     sliding_text_layer_set_next_text(s_inning_layer, inning);
     sliding_text_layer_animate_down(s_inning_layer);
   }
@@ -490,6 +501,10 @@ static void in_received_handler(DictionaryIterator *received, void *context) {
           break;
         case PREF_BASES_DISPLAY:
           userSettings.bases_display = (int)t->value->int32;
+          if(currentGameData.status == 2){
+            int instructions[6] = { 0, 0, 0, 1, 0, 0 };
+            updateGame(instructions);
+          }
           break;
         case PREF_PRIMARY_COLOR:
           #ifdef PBL_COLOR
@@ -635,7 +650,9 @@ static void out_failed_handler(DictionaryIterator *failed, AppMessageResult reas
 static void bso_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
-    // Custom drawing happens here!
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     graphics_context_set_fill_color(ctx, userSettings.primary_color);
 		#ifdef PBL_COLOR
     graphics_context_set_stroke_width(ctx, 4);
@@ -663,12 +680,28 @@ static void bso_update_proc(Layer *layer, GContext *ctx) {
         }
       }
     #endif
+    #ifdef PBL_RECT 
+      } else {
+        graphics_context_set_fill_color(ctx, userSettings.primary_color);
+        if(currentGameData.outs > 0){
+          graphics_fill_circle(ctx, GPoint(116, 149), 2);
+        }
+        if(currentGameData.outs > 1){
+          graphics_fill_circle(ctx, GPoint(124, 149), 2);
+        }
+        if((strcmp(currentGameData.inning_half, "Middle") == 0) || (strcmp(currentGameData.inning_half, "End") == 0) || (currentGameData.outs > 2)){
+          graphics_fill_circle(ctx, GPoint(120, 154), 2);
+        }
+      }
+    #endif
   }
 }
 static void inning_state_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
-    // Custom drawing happens here!
+    #ifdef PBL_RECT 
+      if(userSettings.bases_display == 1) {
+    #endif
     if ((strcmp(currentGameData.inning_half, "Top") == 0) || (strcmp(currentGameData.inning_half, "Middle") == 0)) {
       #ifdef PBL_ROUND
         GPoint inning_up_arrow[4] = {
@@ -707,17 +740,43 @@ static void inning_state_update_proc(Layer *layer, GContext *ctx) {
         };
       #endif
       GPathInfo inning_down_arrowinfo = { .num_points = 4, .points = inning_down_arrow };
-      GPath *inning_down_arrow_path = gpath_create(&inning_down_arrowinfo);
+      GPath *inning_down_arrow_path = gpath_create(&inning_down_arrowinfo);\
       graphics_context_set_fill_color(ctx, userSettings.primary_color);
       gpath_draw_filled(ctx, inning_down_arrow_path);
       gpath_destroy(inning_down_arrow_path);
     }
+    #ifdef PBL_RECT 
+      } else {
+        graphics_context_set_fill_color(ctx, userSettings.primary_color);
+        if ((strcmp(currentGameData.inning_half, "Top") == 0) || (strcmp(currentGameData.inning_half, "Middle") == 0)) {
+          graphics_fill_circle(ctx, GPoint(88, 125), 3);
+         } else if ((strcmp(currentGameData.inning_half, "Bottom") == 0) || (strcmp(currentGameData.inning_half, "End") == 0)) {
+          graphics_fill_circle(ctx, GPoint(88, 155), 3);
+        }
+      }
+    #endif
   }
 }
+
+#ifdef PBL_RECT
+static void bases_legacy_helper(Layer *layer, GContext *ctx, GPath *path, int filled){
+  // Translate by (5, 5):
+  gpath_move_to(path, GPoint(5, 0));
+  graphics_context_set_fill_color(ctx, userSettings.primary_color);
+  graphics_context_set_stroke_color(ctx, userSettings.primary_color);
+  if (filled == 1) {
+    gpath_draw_filled(ctx, path);
+  } else {
+    gpath_draw_outline(ctx, path);
+  }
+  gpath_destroy(path);
+}
+#endif
+
 static void bases_update_proc(Layer *layer, GContext *ctx) {
   if (currentGameData.status == 2){
     GRect bounds = layer_get_bounds(layer);
-    #ifdef PBL_BW
+    #ifdef PBL_RECT 
       if(userSettings.bases_display == 1) {
     #endif
     // Custom drawing happens here!
@@ -770,15 +829,38 @@ static void bases_update_proc(Layer *layer, GContext *ctx) {
       gpath_draw_outline(ctx, third_path);
     }
     gpath_destroy(third_path);
-    #ifdef PBL_BW
+    #ifdef PBL_RECT 
       } else {
         static GPoint first_points[5] = {
-        { .x = 127, .y = 132 },
-        { .x = 137, .y = 142 },
-        { .x = 127, .y = 152 },
-        { .x = 117, .y = 142 },
-        { .x = 127, .y = 132 }
-      };
+          { .x = 127, .y = 132 },
+          { .x = 137, .y = 142 },
+          { .x = 127, .y = 152 },
+          { .x = 117, .y = 142 },
+          { .x = 127, .y = 132 }
+        };
+        GPathInfo first_pathinfo = { .num_points = 5, .points = first_points };
+        GPath *first_path = gpath_create(&first_pathinfo);
+        bases_legacy_helper(layer, ctx, first_path, currentGameData.first);
+        static GPoint second_points[5] = {
+          { .x = 115, .y = 120 },
+          { .x = 125, .y = 130 },
+          { .x = 115, .y = 140 },
+          { .x = 105, .y = 130 },
+          { .x = 115, .y = 120 }
+        };
+        GPathInfo second_pathinfo = { .num_points = 5, .points = second_points };
+        GPath *second_path = gpath_create(&second_pathinfo);
+        bases_legacy_helper(layer, ctx, second_path, currentGameData.second);
+        static GPoint third_points[5] = {
+          { .x = 103, .y = 132 },
+          { .x = 113, .y = 142 },
+          { .x = 103, .y = 152 },
+          { .x = 93, .y = 142 },
+          { .x = 103, .y = 132 }
+        };
+        GPathInfo third_pathinfo = { .num_points = 5, .points = third_points };
+        GPath *third_path = gpath_create(&third_pathinfo);
+        bases_legacy_helper(layer, ctx, third_path, currentGameData.third);
       }
     #endif
   }

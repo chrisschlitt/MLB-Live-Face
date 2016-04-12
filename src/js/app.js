@@ -258,7 +258,7 @@ function newGameDataRequest(){
 
 // Function to append settings to data
 function sendSettings(){
-  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': basesDisplay};
+  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':shakeEnabled, 'PREF_SHAKE_TIME':shakeTime, 'PREF_REFRESH_TIME_OFF':refreshTime[0], 'PREF_REFRESH_TIME_ON': refreshTime[1], 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': parseInt(basesDisplay)};
   sendDataToWatch(dictionary);
 }
 
