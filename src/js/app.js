@@ -358,7 +358,13 @@ Pebble.addEventListener("ready", function(e) {
 												
 // Called when incoming message from the Pebble is received
 Pebble.addEventListener("appmessage", function(e) {
-  newGameDataRequest();
+  var type = e.payload.type;
+  if(type == 1){
+    newGameDataRequest();
+  } else if(type == 2) {
+    loadSettings();
+    sendSettings();
+  }
 });
 
 Pebble.addEventListener('webviewclosed', function(e) {

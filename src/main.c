@@ -57,6 +57,7 @@ static char away_score[25];
 static char s_buffer_prev[8];
 uint32_t logo[31] = {RESOURCE_ID_PHILLIES, RESOURCE_ID_ANGELS, RESOURCE_ID_ASTROS, RESOURCE_ID_ATHLETICS, RESOURCE_ID_BLUEJAYS, RESOURCE_ID_BRAVES, RESOURCE_ID_BREWERS, RESOURCE_ID_CARDINALS, RESOURCE_ID_CUBS, RESOURCE_ID_DIAMONDBACKS, RESOURCE_ID_DODGERS, RESOURCE_ID_GIANTS, RESOURCE_ID_INDIANS, RESOURCE_ID_MARINERS, RESOURCE_ID_MARLINS, RESOURCE_ID_METS, RESOURCE_ID_NATIONALS, RESOURCE_ID_ORIOLES, RESOURCE_ID_PADRES, RESOURCE_ID_PHILLIES, RESOURCE_ID_PIRATES, RESOURCE_ID_RANGERS, RESOURCE_ID_RAYS, RESOURCE_ID_REDSOX, RESOURCE_ID_REDS, RESOURCE_ID_ROCKIES, RESOURCE_ID_ROYALS, RESOURCE_ID_TIGERS, RESOURCE_ID_TWINS, RESOURCE_ID_WHITESOX, RESOURCE_ID_YANKEES};
 static int logo_uodate_i = 0;
+int color_update = 0;
 
 // Color Resources
 #define ASCII_0_VALU 48
@@ -247,6 +248,14 @@ static void change_teams(){
 static void request_update(){
   DictionaryIterator *iter;
   app_message_outbox_begin(&iter);
+  dict_write_uint32(iter, TYPE, 1);
+  app_message_outbox_send();
+}
+
+static void request_color_update(){
+  DictionaryIterator *iter;
+  app_message_outbox_begin(&iter);
+  dict_write_uint32(iter, TYPE, 2);
   app_message_outbox_send();
 }
 
@@ -392,6 +401,7 @@ static void showNoGame(){
   }
 }
 static void change_colors(){
+  color_update = 1;
   // Set Primary Color
   sliding_text_layer_set_text_color(s_home_team_layer, userSettings.primary_color);
   sliding_text_layer_set_text_color(s_away_team_layer, userSettings.primary_color);
@@ -1044,6 +1054,10 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
       request_update();
       update_number = 0;
     }
+  }
+  // Fallback to update colors on aplite
+  if(color_update == 0){
+    request_color_update();
   }
 }
 
