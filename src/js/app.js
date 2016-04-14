@@ -1,3 +1,6 @@
+// App Info
+var version = "3.2";
+
 // Global Settings Variables
 var favoriteTeam = 19;
 var shakeEnabled = 1;
@@ -212,7 +215,7 @@ function processGameData(gameData){
 function getGameData(offset){
   var method = 'GET';
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.phl.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=3.0';
+  var url = 'http://pebble.phl.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
   // Create the request
   var request = new XMLHttpRequest();
   
@@ -245,6 +248,9 @@ function newGameDataRequest(){
   // Get Timezone offset and convert to eastern time
   var now = new Date();
   var hours = now.getHours() + getTimezoneOffsetHours();
+  if(hours > 23){
+    hours = hours - 24;
+  }
   // Determine if before 11 am EST
   if (hours > 10) {
     // If after 10:59, offset 0
@@ -364,7 +370,6 @@ Pebble.addEventListener("appmessage", function(e) {
     newGameDataRequest();
   } else if(type == 2) {
     loadSettings();
-    sendSettings();
   }
 });
 
@@ -380,6 +385,7 @@ Pebble.addEventListener('showConfiguration', function() {
   var url = 'http://pebble.phl.chs.network/mlb/config/config-3.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&bases-display=' + basesDisplay + '&platform=' + watch.platform;
   Pebble.openURL(url);
 });
+
 
 
 
