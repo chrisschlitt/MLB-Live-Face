@@ -30,6 +30,15 @@ function getTimezoneOffsetHours(){
   return offsetHours;
 }
 
+// Function to parse a score
+function parseScore(raw_score){
+  var score = parseInt(raw_score);
+  if(score === ""){
+    score = 0;
+  }
+  return score;
+}
+
 // Function to send a message to the Pebble using AppMessage API
 function sendDataToWatch(data){
 	Pebble.sendAppMessage(data);
@@ -82,8 +91,8 @@ function compileDataForWatch(raw_data, game){
     dictionary.FIRST = parseInt(data.runners_on_base.split(":")[0]);
     dictionary.SECOND = parseInt(data.runners_on_base.split(":")[1]);
     dictionary.THIRD = parseInt(data.runners_on_base.split(":")[2]);
-    dictionary.HOME_SCORE = parseInt(data.home_score);
-    dictionary.AWAY_SCORE = parseInt(data.away_score);
+    dictionary.HOME_SCORE = parseScore(data.home_score);
+    dictionary.AWAY_SCORE = parseScore(data.away_score);
     dictionary.INNING = parseInt(data.inning);
     dictionary.INNING_HALF = data.inning_half;
     dictionary.BALLS = parseInt(data.balls);
@@ -97,8 +106,8 @@ function compileDataForWatch(raw_data, game){
     dictionary.STATUS = 3;
     dictionary.HOME_TEAM = data.home_team;
     dictionary.AWAY_TEAM = data.away_team;
-    dictionary.HOME_SCORE = parseInt(data.home_score);
-    dictionary.AWAY_SCORE = parseInt(data.away_score);
+    dictionary.HOME_SCORE = parseScore(data.home_score);
+    dictionary.AWAY_SCORE = parseScore(data.away_score);
     dictionary.INNING = parseInt(data.inning);
     sendDataToWatch(dictionary);
     
