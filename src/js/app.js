@@ -1,5 +1,5 @@
 // App Info
-var version = "3.2";
+var version = "3.3";
 
 // Global Settings Variables
 var favoriteTeam = 19;
