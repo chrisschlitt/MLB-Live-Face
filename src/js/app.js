@@ -9,7 +9,7 @@ var refreshTime = [3600, 60];
 var basesDisplay = 1;
 var primaryColor = "FFFFFF";
 var secondaryColor = "FFFFFF";
-var backgroundColor = "000000";
+var backgroundColor = "AA0000";
 /*
 * Future Settings:
 */
@@ -315,7 +315,7 @@ function loadSettings(){
   }
   backgroundColor = localStorage.getItem(8);
   if(backgroundColor === null){
-    backgroundColor = "000000";
+    backgroundColor = "AA0000";
   }
   basesDisplay = localStorage.getItem(9);
   if(basesDisplay === null){
