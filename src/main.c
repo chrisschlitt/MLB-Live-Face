@@ -1034,7 +1034,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   update_time();
   if (slide_number > 0){
     slide_number++;
-    if (slide_number == userSettings.shake_time){
+    if (slide_number >= userSettings.shake_time){
       show_pitchers();
       slide_number = 0;
     }

@@ -1,5 +1,5 @@
 // App Info
-var version = "3.2";
+var version = "3.3";
 
 // Global Settings Variables
 var favoriteTeam = 19;
@@ -9,7 +9,7 @@ var refreshTime = [3600, 60];
 var basesDisplay = 1;
 var primaryColor = "FFFFFF";
 var secondaryColor = "FFFFFF";
-var backgroundColor = "000000";
+var backgroundColor = "AA0000";
 /*
 * Future Settings:
 */
@@ -21,12 +21,22 @@ var backgroundColor = "000000";
 // Global Variables
 var offset = 0;
 var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY"];
+var retry = 0;
 
 // Function to get the timezone offset
 function getTimezoneOffsetHours(){
   var offsetHours = new Date().getTimezoneOffset() / 60;
   offsetHours = offsetHours - 4;
   return offsetHours;
+}
+
+// Function to parse a score
+function parseScore(raw_score){
+  var score = parseInt(raw_score);
+  if(score === ""){
+    score = 0;
+  }
+  return score;
 }
 
 // Function to send a message to the Pebble using AppMessage API
@@ -39,6 +49,7 @@ function compileDataForWatch(raw_data, game){
   // Determine how much the data has changed
   // Prepare the dictionary depending on game status
   // Compile dictionary based on what has changed
+  retry = 0;
   var data = raw_data.game_data[game];
   var game_status = data.game_status;
   var dictionary = {'TYPE':1};
@@ -80,8 +91,8 @@ function compileDataForWatch(raw_data, game){
     dictionary.FIRST = parseInt(data.runners_on_base.split(":")[0]);
     dictionary.SECOND = parseInt(data.runners_on_base.split(":")[1]);
     dictionary.THIRD = parseInt(data.runners_on_base.split(":")[2]);
-    dictionary.HOME_SCORE = parseInt(data.home_score);
-    dictionary.AWAY_SCORE = parseInt(data.away_score);
+    dictionary.HOME_SCORE = parseScore(data.home_score);
+    dictionary.AWAY_SCORE = parseScore(data.away_score);
     dictionary.INNING = parseInt(data.inning);
     dictionary.INNING_HALF = data.inning_half;
     dictionary.BALLS = parseInt(data.balls);
@@ -95,8 +106,8 @@ function compileDataForWatch(raw_data, game){
     dictionary.STATUS = 3;
     dictionary.HOME_TEAM = data.home_team;
     dictionary.AWAY_TEAM = data.away_team;
-    dictionary.HOME_SCORE = parseInt(data.home_score);
-    dictionary.AWAY_SCORE = parseInt(data.away_score);
+    dictionary.HOME_SCORE = parseScore(data.home_score);
+    dictionary.AWAY_SCORE = parseScore(data.away_score);
     dictionary.INNING = parseInt(data.inning);
     sendDataToWatch(dictionary);
     
@@ -227,6 +238,9 @@ function getGameData(offset){
     if(offset == -1 && number_of_games === 0){
       offset = 0;
       getGameData(offset);
+    } else if(number_of_games === 0 && retry === 0){
+      getGameData(offset);
+      retry = 1;
     } else if(offset == -1 && number_of_games == 1 && (raw_data.game_data[0].game_status == 'Postponed' || raw_data.game_data[0].game_status == 'Cancelled')){
       offset = 0;
       getGameData(offset);
@@ -301,7 +315,7 @@ function loadSettings(){
   }
   backgroundColor = localStorage.getItem(8);
   if(backgroundColor === null){
-    backgroundColor = "000000";
+    backgroundColor = "AA0000";
   }
   basesDisplay = localStorage.getItem(9);
   if(basesDisplay === null){
