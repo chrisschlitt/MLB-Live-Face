@@ -1,5 +1,8 @@
 // App Info
-var version = "3.3";
+var version = "3.5";
+
+// Default Server
+var server = '';
 
 // Global Settings Variables
 var favoriteTeam = 19;
@@ -226,7 +229,7 @@ function processGameData(gameData){
 function getGameData(offset){
   var method = 'GET';
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.phl.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
+  var url = 'http://pebble.' + server + '.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
   // Create the request
   var request = new XMLHttpRequest();
   
@@ -372,9 +375,28 @@ function initializeData(){
   newGameDataRequest();
 }
 
+// Function to get the current server
+function initializeServer(){
+  var url = 'http://lookup.cloud.chs.network/index.php?application=pebble';
+  var method = 'GET';
+  // Create the request
+  var request = new XMLHttpRequest();
+  
+  // Specify the callback for when the request is completed
+  request.onload = function() {
+    // The request was successfully completed!
+    var data = JSON.parse(this.responseText);
+    server = data.server;
+    initializeData();
+  };
+  // Send the request
+  request.open(method, url);
+  request.send();
+}
+
 // Called when JS is ready
 Pebble.addEventListener("ready", function(e) {
-  initializeData();
+  initializeServer();
 });
 												
 // Called when incoming message from the Pebble is received
