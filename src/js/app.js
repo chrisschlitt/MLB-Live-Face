@@ -1,5 +1,7 @@
 // App Info
 var version = "3.5";
+var api_version = "3";
+var settings_version = "3";
 
 // Default Server
 var server = '';
@@ -229,9 +231,10 @@ function processGameData(gameData){
 function getGameData(offset){
   var method = 'GET';
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.' + server + '.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
+  var url = 'http://pebble.' + server + '.chs.network/mlb/api-' + api_version + '.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
   // Create the request
   var request = new XMLHttpRequest();
+  request.timeout = 5000;
   
   // Specify the callback for when the request is completed
   request.onload = function() {
@@ -253,6 +256,11 @@ function getGameData(offset){
     } else {
       processGameData(raw_data);
     }
+  };
+  
+  // On timeout, check to see if the server is live
+  request.ontimeout = function (e) {
+    initializeServer();
   };
   
   // Send the request
@@ -418,7 +426,7 @@ Pebble.addEventListener('webviewclosed', function(e) {
 Pebble.addEventListener('showConfiguration', function() {
   loadSettings();
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.phl.chs.network/mlb/config/config-3.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&bases-display=' + basesDisplay + '&platform=' + watch.platform;
+  var url = 'http://pebble.phl.chs.network/mlb/config/config-' + settings_version + '.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&bases-display=' + basesDisplay + '&platform=' + watch.platform;
   Pebble.openURL(url);
 });
 

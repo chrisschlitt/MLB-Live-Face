@@ -193,6 +193,7 @@
             {
                 "file": "fonts/PHILLIES_FONT.ttf",
                 "name": "FONT_PHILLIES_22",
+                "targetPlatforms": null,
                 "type": "font"
             },
             {
@@ -220,7 +221,7 @@
         "chalk"
     ],
     "uuid": "3ae16b33-47d1-4479-8f41-b5face25f3ca",
-    "versionLabel": "3.4",
+    "versionLabel": "3.5",
     "watchapp": {
         "watchface": true
     }
