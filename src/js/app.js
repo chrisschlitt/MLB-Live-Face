@@ -28,6 +28,7 @@ var offset = 0;
 var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY", "NL", "AL"];
 var retry = 0;
 var all_star_game = 0;
+var reload_timeout = 0;
 
 // Function to get the timezone offset
 function getTimezoneOffsetHours(){
@@ -240,6 +241,7 @@ function getGameData(offset){
   // Specify the callback for when the request is completed
   request.onload = function() {
     // The request was successfully completed!
+    reload_timeout = 0;
     var raw_data = JSON.parse(this.responseText);
     var number_of_games = parseInt(JSON.parse(raw_data.number_of_games));
     
@@ -270,7 +272,11 @@ function getGameData(offset){
   
   // On timeout, check to see if the server is live
   request.ontimeout = function (e) {
-    initializeServer();
+    if(reload_timeout < 5){
+      initializeServer();
+      reload_timeout++;
+    }
+    
   };
   
   // Send the request
