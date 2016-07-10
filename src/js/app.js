@@ -1,5 +1,7 @@
 // App Info
-var version = "3.5";
+var version = "3.6";
+var api_version = "5";
+var settings_version = "3";
 
 // Default Server
 var server = '';
@@ -23,8 +25,10 @@ var backgroundColor = "AA0000";
 
 // Global Variables
 var offset = 0;
-var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY"];
+var teams = ["", "LAA", "HOU", "OAK", "TOR", "ATL", "MIL", "STL", "CHC", "ARI", "LAD", "SF", "CLE", "SEA", "MIA", "NYM", "WSH", "BAL", "SD", "PHI", "PIT", "TEX", "TB", "BOS", "CIN", "COL", "KC", "DET", "MIN", "CWS", "NYY", "NL", "AL"];
 var retry = 0;
+var all_star_game = 0;
+var reload_timeout = 0;
 
 // Function to get the timezone offset
 function getTimezoneOffsetHours(){
@@ -229,15 +233,26 @@ function processGameData(gameData){
 function getGameData(offset){
   var method = 'GET';
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.' + server + '.chs.network/mlb/api-3.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
+  var url = 'http://pebble.' + server + '.chs.network/mlb/api-' + api_version + '.php?cst=' + Pebble.getAccountToken() + '&team=' + teams[favoriteTeam] + '&offset=' + offset + '&platform=' + watch.platform + '&version=' + version;
   // Create the request
   var request = new XMLHttpRequest();
+  request.timeout = 5000;
   
   // Specify the callback for when the request is completed
   request.onload = function() {
     // The request was successfully completed!
+    reload_timeout = 0;
     var raw_data = JSON.parse(this.responseText);
     var number_of_games = parseInt(JSON.parse(raw_data.number_of_games));
+    
+    // If all star game, refresh logos
+    if(number_of_games == 1 && (raw_data.game_data[0].home_team == "NL" || raw_data.game_data[0].home_team == "NL")){
+      all_star_game = 1;
+      sendSettings();
+    } else {
+      all_star_game = 0;
+    }
+    
     if(offset == -1 && number_of_games === 0){
       offset = 0;
       getGameData(offset);
@@ -253,6 +268,15 @@ function getGameData(offset){
     } else {
       processGameData(raw_data);
     }
+  };
+  
+  // On timeout, check to see if the server is live
+  request.ontimeout = function (e) {
+    if(reload_timeout < 5){
+      initializeServer();
+      reload_timeout++;
+    }
+    
   };
   
   // Send the request
@@ -282,7 +306,20 @@ function newGameDataRequest(){
 
 // Function to append settings to data
 function sendSettings(){
-  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeam), 'PREF_SHAKE_ENABELED':parseInt(shakeEnabled), 'PREF_SHAKE_TIME':parseInt(shakeTime), 'PREF_REFRESH_TIME_OFF':parseInt(refreshTime[0]), 'PREF_REFRESH_TIME_ON': parseInt(refreshTime[1]), 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': parseInt(basesDisplay)};
+  var favoriteTeamTemp = favoriteTeam;
+  // Change to All Star Game logos
+  if(all_star_game == 1){
+    if ((favoriteTeam == 1) || (favoriteTeam == 2) || (favoriteTeam == 3) || (favoriteTeam == 4) || (favoriteTeam == 12) || (favoriteTeam == 13) || (favoriteTeam == 17) || (favoriteTeam == 21) || (favoriteTeam == 22) || (favoriteTeam == 23) || (favoriteTeam == 26) || (favoriteTeam == 27) || (favoriteTeam == 28) || (favoriteTeam == 29) || (favoriteTeam == 30)) {
+      favoriteTeamTemp = 32;
+      backgroundColor = "000055";
+    } else {
+      favoriteTeamTemp = 31;
+      backgroundColor = "AA0000";
+    }
+    secondaryColor = "FFFFFF";
+    primaryColor = "FFFFFF";
+  }
+  var dictionary = {'TYPE':0, 'PREF_FAVORITE_TEAM':parseInt(favoriteTeamTemp), 'PREF_SHAKE_ENABELED':parseInt(shakeEnabled), 'PREF_SHAKE_TIME':parseInt(shakeTime), 'PREF_REFRESH_TIME_OFF':parseInt(refreshTime[0]), 'PREF_REFRESH_TIME_ON': parseInt(refreshTime[1]), 'PREF_PRIMARY_COLOR': primaryColor, 'PREF_SECONDARY_COLOR': secondaryColor, 'PREF_BACKGROUND_COLOR': backgroundColor, 'PREF_BASES_DISPLAY': parseInt(basesDisplay)};
   sendDataToWatch(dictionary);
 }
 
@@ -418,10 +455,6 @@ Pebble.addEventListener('webviewclosed', function(e) {
 Pebble.addEventListener('showConfiguration', function() {
   loadSettings();
   var watch = Pebble.getActiveWatchInfo ? Pebble.getActiveWatchInfo() : null;
-  var url = 'http://pebble.phl.chs.network/mlb/config/config-3.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&bases-display=' + basesDisplay + '&platform=' + watch.platform;
+  var url = 'http://pebble.phl.chs.network/mlb/config/config-' + settings_version + '.php?favorite-team=' + favoriteTeam + '&refresh-off=' + refreshTime[0] + '&refresh-game=' + refreshTime[1] + '&shake-enabled=' + shakeEnabled + '&shake-time=' + shakeTime + '&bases-display=' + basesDisplay + '&platform=' + watch.platform;
   Pebble.openURL(url);
 });
-
-
-
-
